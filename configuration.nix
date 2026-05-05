@@ -106,7 +106,7 @@
   environment.systemPackages = with pkgs; [
     vim
     #git
-    fastfetch
+    #fastfetch
 
   ];
 

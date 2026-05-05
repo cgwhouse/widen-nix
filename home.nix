@@ -1,16 +1,23 @@
 { config, pkgs, ... }:
 
 {
-  programs.home-manager.enable = true;
-  home.username = "cristian";
-  home.homeDirectory = "/home/cristian";
+	programs.home-manager.enable = true;
+	home.username = "cristian";
+	home.homeDirectory = "/home/cristian";
 
-  programs.git = {
-    enable = true;
-    userName = "Cristian Widenhouse";
-    userEmail = "cgwidenhouse@gmail.com";
-  };
+	home.packages = [
+		pkgs.fastfetch
+	];
 
-  # Do not touch
-  home.stateVersion = "25.11";
+	programs.git = {
+		enable = true;
+		settings.user = {
+			name = "Cristian Widenhouse";
+			email = "cgwidenhouse@gmail.com";
+		};
+
+	};
+
+# Do not touch
+	home.stateVersion = "25.11";
 }
