@@ -14,7 +14,7 @@
     inputs@{ nixpkgs, home-manager, ... }:
     {
       nixosConfigurations = {
-        widennix = nixpkgs.lib.nixosSystem {
+        widen-nix = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./configuration.nix
