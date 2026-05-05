@@ -1,13 +1,17 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.home-manager.enable = true;
-  home.username = "cristian";
-  home.homeDirectory = "/home/cristian";
+
+  home = {
+    username = "cristian";
+    homeDirectory = "/home/cristian";
+  };
 
   home.packages = [
     pkgs.fastfetch
     pkgs.nixfmt
+    pkgs.nixd
   ];
 
   programs.git = {
@@ -16,7 +20,6 @@
       name = "Cristian Widenhouse";
       email = "cgwidenhouse@gmail.com";
     };
-
   };
 
   programs.vscode = {
