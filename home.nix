@@ -12,7 +12,38 @@
     pkgs.fastfetch
     pkgs.nixfmt
     pkgs.nixd
+    pkgs.neovim
   ];
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "extract"
+        "git"
+        "sudo"
+      ];
+      theme = "eastwood";
+    };
+
+    shellAliases = {
+      pkgup = "sudo nixos-rebuild switch --flake /home/cristian/repos/widen-nix#widen-nix";
+    };
+
+    history = {
+      size = 10000;
+      ignoreAllDups = true;
+      path = "$HOME/.zsh_history";
+      ignorePatterns = [
+        "rm *"
+        "pkill *"
+        "cp *"
+      ];
+    };
+  };
 
   programs.git = {
     enable = true;
@@ -27,6 +58,12 @@
     profiles.default.extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
     ];
+
+    profiles.default.userSettings = {
+
+      "files.autoSave" = "off";
+
+    };
   };
 
   # Do not touch
