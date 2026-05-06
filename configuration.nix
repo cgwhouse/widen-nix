@@ -21,24 +21,8 @@
   networking.networkmanager.enable = true;
   networking.hostName = "widen-nix";
 
-  # Time zone + locale
-  time.timeZone = "America/New_York";
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  # VM
-  services.qemuGuest.enable = true;
-  services.spice-vdagentd.enable = true;
+  programs.zsh.enable = true;
+  environment.shells = with pkgs; [ zsh ];
 
   # KDE Plasma
   services.displayManager.sddm.enable = true;
@@ -62,18 +46,21 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # TODO: can I remove this?
-  users.users.cristian = {
-    isNormalUser = true;
-    description = "Cristian Widenhouse";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
+  users = {
+    users.cristian = {
+      isNormalUser = true;
+      description = "Cristian Widenhouse";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+      ];
+    };
+
+    defaultUserShell = pkgs.zsh;
+
   };
 
-  # Install firefox.
+  # TODO: remove
   programs.firefox.enable = true;
 
   # System packages
@@ -83,10 +70,29 @@
     wget
   ];
 
+  # VM
+  services.qemuGuest.enable = true;
+  services.spice-vdagentd.enable = true;
+
   # Disable X11, CUPS, firewall
   services.xserver.enable = false;
   services.printing.enable = false;
   networking.firewall.enable = false;
+
+  # Time zone + locale
+  time.timeZone = "America/New_York";
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
 
   # Do not touch
   system.stateVersion = "25.11";
