@@ -30,6 +30,7 @@
     };
 
     shellAliases = {
+      c = "clear && fastfetch";
       pkgup = "sudo nixos-rebuild switch --flake /home/cristian/repos/widen-nix#widen-nix";
     };
 
