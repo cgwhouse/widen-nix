@@ -7,6 +7,7 @@
         email = "cgwidenhouse@gmail.com";
       };
 
+      # Needed for git-credential-manager
       credential = {
         credentialStore = "cache";
         helper = "manager";

@@ -39,6 +39,6 @@
         widen-nix = mkHost "widen-nix";
       };
 
-      formatter.${system} = pkgs.nixfmt-rfc-style;
+      formatter.${system} = pkgs.nixfmt;
     };
 }

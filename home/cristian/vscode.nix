@@ -8,6 +8,7 @@
         jnoortheen.nix-ide
       ];
 
+      # TODO: build out userSettings
       userSettings = {
         "files.autoSave" = "off";
       };

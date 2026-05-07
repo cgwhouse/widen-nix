@@ -15,6 +15,8 @@
 
     shellAliases = {
       c = "clear && fastfetch";
+      pkgre = "nh os switch .";
+      pkgup = "nix flake update";
     };
 
     history = {

@@ -16,12 +16,14 @@
   };
 
   home.packages = with pkgs; [
+    # Nix meta
+    nh
+    nixd
+    nixfmt
+
     fastfetch
     git-credential-manager
     neovim
-    nh
-    nixd
-    nixfmt-rfc-style
   ];
 
   # Do not touch
