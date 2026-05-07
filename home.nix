@@ -13,6 +13,7 @@
     pkgs.nixfmt
     pkgs.nixd
     pkgs.neovim
+    pkgs.git-credential-manager
   ];
 
   programs.zsh = {
