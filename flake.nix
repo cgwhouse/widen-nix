@@ -12,23 +12,33 @@
 
   outputs =
     inputs@{ nixpkgs, home-manager, ... }:
-    {
-      nixosConfigurations = {
-        widen-nix = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+
+      mkHost =
+        hostname:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
           modules = [
-            ./configuration.nix
-            ./hardware-configuration.nix
+            ./hosts/${hostname}
 
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.cristian = import ./home.nix;
+              home-manager.users.cristian = import ./home/cristian;
             }
           ];
         };
+    in
+    {
+      nixosConfigurations = {
+        widen-nix = mkHost "widen-nix";
       };
+
+      formatter.${system} = pkgs.nixfmt-rfc-style;
     };
 }
