@@ -1,6 +1,6 @@
 {
-services = {
-qemuGuest.enable = true;
-spice-vdagentd.enable = true;
-};
+  services = {
+    qemuGuest.enable = true;
+    spice-vdagentd.enable = true;
+  };
 }

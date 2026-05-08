@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-# Make zsh available as a system shell
+  # Make zsh available as a system shell
   programs.zsh.enable = true;
   environment.shells = with pkgs; [ zsh ];
 
