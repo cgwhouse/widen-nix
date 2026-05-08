@@ -1,19 +1,32 @@
 { pkgs, ... }:
 
 {
-  nix.settings.experimental-features = [
+
+# Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+nix = {
+settings = {
+# Enable Flakes
+experimental-features = [
     "nix-command"
     "flakes"
   ];
-  nix.settings.auto-optimise-store = true;
+  
+  auto-optimise-store = true;
+};
 
-  nix.gc = {
+# Some more automatic cleanup
+gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 14d";
   };
+};
 
-  nixpkgs.config.allowUnfree = true;
+
+
+
 
   environment.systemPackages = with pkgs; [
     vim

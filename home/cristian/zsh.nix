@@ -25,6 +25,7 @@
       pkgcl = "nh clean all";
     };
 
+    # Source: NixOS wiki
     history = {
       size = 10000;
       ignoreAllDups = true;

@@ -1,7 +1,15 @@
 {
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+services = {
+# KDE
+displayManager.sddm.enable = true;
+  desktopManager.plasma6.enable = true;
 
-  services.xserver.enable = false;
-  services.printing.enable = false;
+# Disable X11, printing
+xserver.enable = false;
+printing.enable = false;
+};
+
+  
+
+  
 }
