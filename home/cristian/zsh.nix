@@ -11,12 +11,18 @@
         "sudo"
       ];
       theme = "eastwood";
+
+    initContent = ''
+fastfetch
+    '';
     };
 
     shellAliases = {
       c = "clear && fastfetch";
-      pkgre = "nh os switch .";
-      pkgup = "nix flake update";
+
+      pkgsy = "nix flake update";
+      pkgup = "nh os switch .";
+      pkgcl = "nh clean all";
     };
 
     history = {
