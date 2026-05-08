@@ -11,11 +11,11 @@
         "sudo"
       ];
       theme = "eastwood";
+    };
 
     initContent = ''
-fastfetch
+      fastfetch
     '';
-    };
 
     shellAliases = {
       c = "clear && fastfetch";
