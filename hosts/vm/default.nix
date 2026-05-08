@@ -10,5 +10,5 @@
   networking.hostName = "widen-nix-vm";
 
   # Do not touch
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }
