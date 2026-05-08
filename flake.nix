@@ -17,12 +17,12 @@
       pkgs = nixpkgs.legacyPackages.${system};
 
       mkHost =
-        hostname:
+        dir:
         nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            ./hosts/${hostname}
+            ./hosts/${dir}
 
             home-manager.nixosModules.home-manager
             {
@@ -36,7 +36,9 @@
     in
     {
       nixosConfigurations = {
-        widen-nix = mkHost "widen-nix";
+        widen-nix-vm = mkHost "vm";
+        # Add future hosts here, e.g.:
+        # widen-nix-laptop = mkHost "laptop";
       };
 
       formatter.${system} = pkgs.nixfmt;

@@ -7,6 +7,5 @@
     ./networking.nix
     ./nix-settings.nix
     ./users.nix
-    ./vm-guest.nix
   ];
 }
