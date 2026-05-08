@@ -9,7 +9,7 @@
 
       # Needed for git-credential-manager
       credential = {
-        credentialStore = "cache";
+        credentialStore = "secretservice";
         helper = "manager";
         "https://github.com".username = "cgwhouse";
       };
