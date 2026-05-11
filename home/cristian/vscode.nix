@@ -34,25 +34,50 @@ in
             "command" = "vscode-neovim.escape";
           };
         };
+        # Defaults minus c/e/k so VS Code's Ctrl+C copy, Ctrl+E quick open,
+        # and Ctrl+K chord prefix aren't intercepted by the extension.
+        # Review on extension upgrades — these replace defaults wholesale.
+        "vscode-neovim.ctrlKeysForInsertMode" = [
+          "a"
+          "d"
+          "h"
+          "j"
+          "m"
+          "o"
+          "r"
+          "t"
+          "u"
+          "w"
+        ];
+        "vscode-neovim.ctrlKeysForNormalMode" = [
+          "a"
+          "b"
+          "d"
+          "f"
+          "h"
+          "i"
+          "j"
+          "l"
+          "m"
+          "o"
+          "r"
+          "t"
+          "u"
+          "v"
+          "w"
+          "x"
+          "y"
+          "z"
+          "/"
+          "]"
+          "right"
+          "left"
+          "up"
+          "down"
+          "backspace"
+          "delete"
+        ];
       };
-
-      keybindings = [
-        {
-          "key" = "ctrl+c";
-          "command" = "editor.action.clipboardCopyAction";
-          "when" = "editorTextFocus && neovim.init";
-        }
-        {
-          "key" = "ctrl+e";
-          "command" = "workbench.action.quickOpen";
-          "when" = "neovim.init";
-        }
-        {
-          "command" = "-vscode-neovim.send";
-          "key" = "ctrl+k";
-          "when" = "editorTextFocus && neovim.init";
-        }
-      ];
     };
   };
 
