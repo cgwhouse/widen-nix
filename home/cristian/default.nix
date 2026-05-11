@@ -28,7 +28,7 @@
     git-credential-manager
     # neovim
     ripgrep
-  ]; 
+  ];
 
   # Do not touch
   home.stateVersion = "26.05";
