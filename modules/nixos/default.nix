@@ -6,6 +6,7 @@
     ./locale.nix
     ./networking.nix
     ./nix-settings.nix
+    ./sudo.nix
     ./users.nix
   ];
 }

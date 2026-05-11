@@ -9,6 +9,7 @@ in
 {
   programs.vscode = {
     enable = true;
+
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
@@ -28,20 +29,25 @@ in
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;
         };
-
         "vscode-neovim.compositeKeys" = {
           "jk" = {
             "command" = "vscode-neovim.escape";
-            # "args" = [
-            #   [
-            #     "local code = require('vscode')"
-            #     "code.action('vscode-neovim.escape')"
-            #     #"code.action('workbench.action.files.save')"
-            #   ]
-            # ];
           };
         };
       };
+
+      keybindings = [
+        {
+          "key" = "ctrl+c";
+          "command" = "editor.action.clipboardCopyAction";
+          "when" = "editorTextFocus && neovim.init";
+        }
+        {
+          "key" = "ctrl+e";
+          "command" = "workbench.action.quickOpen";
+          "when" = "neovim.init";
+        }
+      ];
     };
   };
 
