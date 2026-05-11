@@ -3,6 +3,7 @@
 {
   imports = [
     ./direnv.nix
+    ./firefox.nix
     ./git.nix
     ./neovim.nix
     ./vscode.nix
