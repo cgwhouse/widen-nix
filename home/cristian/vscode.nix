@@ -12,13 +12,34 @@ in
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
+        christian-kohler.path-intellisense
+        asvetliakov.vscode-neovim
       ];
 
       userSettings = {
+        # Nix Meta
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
         "nix.serverSettings" = {
           nixd.formatting.command = [ "nixfmt" ];
+        };
+
+        # Neovim extension
+        "extensions.experimental.affinity" = {
+          "asvetliakov.vscode-neovim" = 1;
+        };
+
+        "vscode-neovim.compositeKeys" = {
+          "jk" = {
+            "command" = "vscode-neovim.escape";
+            # "args" = [
+            #   [
+            #     "local code = require('vscode')"
+            #     "code.action('vscode-neovim.escape')"
+            #     #"code.action('workbench.action.files.save')"
+            #   ]
+            # ];
+          };
         };
       };
     };

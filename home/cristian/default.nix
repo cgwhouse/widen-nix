@@ -4,6 +4,7 @@
   imports = [
     ./direnv.nix
     ./git.nix
+    ./neovim.nix
     ./vscode.nix
     ./zsh.nix
   ];
@@ -23,8 +24,9 @@
 
     fastfetch
     git-credential-manager
-    neovim
-  ];
+    # neovim
+    ripgrep
+  ]; 
 
   # Do not touch
   home.stateVersion = "26.05";
