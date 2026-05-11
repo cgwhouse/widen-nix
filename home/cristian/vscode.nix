@@ -29,14 +29,14 @@ in
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;
         };
+
         "vscode-neovim.compositeKeys" = {
           "jk" = {
             "command" = "vscode-neovim.escape";
           };
         };
-        # Defaults minus c/e/k so VS Code's Ctrl+C copy, Ctrl+E quick open,
-        # and Ctrl+K chord prefix aren't intercepted by the extension.
-        # Review on extension upgrades — these replace defaults wholesale.
+
+        # Mostly preserve regular VS Code shortcuts
         "vscode-neovim.ctrlKeysForInsertMode" = [
           "a"
           "d"
@@ -49,6 +49,7 @@ in
           "u"
           "w"
         ];
+
         "vscode-neovim.ctrlKeysForNormalMode" = [
           "a"
           "b"
