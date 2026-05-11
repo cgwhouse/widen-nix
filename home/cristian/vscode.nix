@@ -47,6 +47,11 @@ in
           "command" = "workbench.action.quickOpen";
           "when" = "neovim.init";
         }
+        {
+          "command" = "-vscode-neovim.send";
+          "key" = "ctrl+k";
+          "when" = "editorTextFocus && neovim.init";
+        }
       ];
     };
   };
