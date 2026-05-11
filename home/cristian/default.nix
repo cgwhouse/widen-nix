@@ -6,6 +6,7 @@
     ./firefox.nix
     ./git.nix
     ./neovim.nix
+    ./plasma.nix
     ./vscode.nix
     ./zsh.nix
   ];
