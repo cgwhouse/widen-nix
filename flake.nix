@@ -44,8 +44,6 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
-              # home-manager.users.cristian = import ./home/cristian;
-
               home-manager.users.cristian = {
                 imports = [
                   ./home/cristian
@@ -59,8 +57,6 @@
     {
       nixosConfigurations = {
         widen-nix-vm = mkHost "vm";
-        # Add future hosts here, e.g.:
-        # widen-nix-laptop = mkHost "laptop";
       };
 
       formatter.${system} = pkgs.nixfmt;
