@@ -8,7 +8,9 @@
     ./ghostty.nix
     ./git.nix
     ./neovim.nix
+    ./nix-index.nix
     ./plasma.nix
+    ./starship.nix
     ./vscode.nix
     ./zsh.nix
   ];

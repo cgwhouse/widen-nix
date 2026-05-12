@@ -15,6 +15,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
@@ -36,6 +42,7 @@
           modules = [
             ./hosts/${dir}
             catppuccin.nixosModules.catppuccin
+            inputs.agenix.nixosModules.default
 
             home-manager.nixosModules.home-manager
             {

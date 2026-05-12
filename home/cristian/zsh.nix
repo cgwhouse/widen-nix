@@ -10,7 +10,6 @@
         "git"
         "sudo"
       ];
-      theme = "eastwood";
     };
 
     initContent = ''

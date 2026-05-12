@@ -4,6 +4,7 @@
     enableZshIntegration = true;
 
     settings = {
+      font-family = "JetBrainsMono Nerd Font";
       font-size = 13.0;
       background-opacity = 0.9;
       shell-integration-features = "sudo";
