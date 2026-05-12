@@ -4,6 +4,7 @@
   imports = [
     ./direnv.nix
     ./firefox.nix
+    ./ghostty.nix
     ./git.nix
     ./neovim.nix
     ./plasma.nix
@@ -23,6 +24,7 @@
     nh
     nixd
     nixfmt
+    nixfmt-tree
 
     fastfetch
     git-credential-manager
