@@ -29,7 +29,6 @@
 
     fastfetch
     git-credential-manager
-    # neovim
     ripgrep
   ];
 
