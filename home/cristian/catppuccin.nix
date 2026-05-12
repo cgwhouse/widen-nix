@@ -7,24 +7,16 @@
     flavor = "mocha";
   };
 
-  # 1. Install the theme package
   home.packages = [
     (pkgs.catppuccin-kde.override {
       flavour = [ "mocha" ];
       accents = [ "green" ];
     })
+    pkgs.catppuccin-cursors.mochaGreen
   ];
 
-  # 2. Configure via plasma-manager
-  programs.plasma = {
-    workspace = {
-      # This sets the "Global Theme"
-      lookAndFeel = "Catppuccin-Mocha-Green";
-
-      # Optional: Fine-tune individual components
-      # colorScheme = "CatppuccinMochaGreen";
-      # theme = "catppuccin-mocha-blue"; # The "Plasma Style"
-      # cursorTheme = "catppuccin-mocha-blue-cursors";
-    };
+  programs.plasma.workspace = {
+    lookAndFeel = "Catppuccin-Mocha-Green";
+    cursor.theme = "catppuccin-mocha-green-cursors";
   };
 }
