@@ -6,15 +6,12 @@
     settings = {
       font-size = 13.0;
       background-opacity = 0.9;
-      theme = "Catppuccin Mocha";
       shell-integration-features = "sudo";
     };
   };
 
+  # Plasma: set default terminal application + shortcut
   programs.plasma = {
-    # enable = true;
-
-    # Set default terminal application
     configFile.kdeglobals.General = {
       TerminalService = "com.mitchellh.ghostty.desktop";
       TerminalApplication = "ghostty";
