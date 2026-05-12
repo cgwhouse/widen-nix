@@ -18,12 +18,23 @@ in
       ];
 
       userSettings = {
+        # General
+        "explorer.confirmDragAndDrop" = false;
+
         # Nix Meta
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
         "nix.serverSettings" = {
           nixd.formatting.command = [ "nixfmt" ];
         };
+
+        # Theming bits (applied by catppuccin.nix global enable)
+        "window.titleBarStyle" = "custom";
+        "workbench.colorTheme" = "Catppuccin Mocha";
+        "workbench.iconTheme" = "catppuccin-mocha";
+        "catppuccin.accentColor" = "green";
+        "editor.semanticHighlighting.enabled" = true;
+        "terminal.integrated.minimumContrastRatio" = 1;
 
         # Neovim extension
         "extensions.experimental.affinity" = {
@@ -78,6 +89,7 @@ in
           "backspace"
           "delete"
         ];
+
       };
     };
   };
