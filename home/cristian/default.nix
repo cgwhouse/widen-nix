@@ -27,7 +27,7 @@
     nixfmt
     nixfmt-tree
 
-    catppuccin-kde
+    # catppuccin-kde
     fastfetch
     git-credential-manager
     ripgrep

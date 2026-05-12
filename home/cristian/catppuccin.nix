@@ -19,7 +19,7 @@
   programs.plasma = {
     workspace = {
       # This sets the "Global Theme"
-      lookAndFeel = "catppuccin-mocha-green";
+      lookAndFeel = "Catppuccin-Mocha-Green";
 
       # Optional: Fine-tune individual components
       # colorScheme = "CatppuccinMochaGreen";
