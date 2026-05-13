@@ -40,5 +40,6 @@
     vim
     curl
     wget
+    pciutils
   ];
 }
