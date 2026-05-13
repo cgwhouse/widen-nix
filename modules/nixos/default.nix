@@ -1,6 +1,5 @@
 {
   imports = [
-    ./agenix.nix
     ./audio.nix
     ./boot.nix
     ./catppuccin.nix

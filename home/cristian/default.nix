@@ -10,6 +10,7 @@
     ./neovim.nix
     ./nix-index.nix
     ./plasma.nix
+    ./ssh.nix
     ./starship.nix
     ./vscode.nix
     ./zsh.nix

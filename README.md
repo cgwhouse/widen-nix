@@ -36,7 +36,6 @@ secrets/               # agenix-encrypted secrets + the recipient list
 | `home-manager` | User-scope config (dotfiles, per-user packages). |
 | `plasma-manager` | Declarative KDE Plasma settings (themes, shortcuts, defaults). |
 | `catppuccin` | Cross-scope theming for SDDM, Plasma, terminal apps, editors. |
-| `agenix` | Age-encrypted secrets, decrypted into `/run/agenix/*` at activation. |
 
 All non-nixpkgs inputs use `inputs.nixpkgs.follows = "nixpkgs"` to dedupe the package set.
 
@@ -93,30 +92,34 @@ nixosConfigurations = {
 
 If a shared module ever needs to be opt-in per host (e.g. `desktop.nix` doesn't make sense on a headless box), introduce a `widen.<feature>.enable` option in that module and gate the config on it. Don't pre-build the options system before you have two hosts that disagree.
 
-## Secrets (agenix)
+## Secrets and SSH keys
 
-No secrets are committed yet — the scaffolding exists so the first one is trivial.
+This repo deliberately contains **no secrets**. The only secrets in play on a typical workstation are SSH private keys for the two servers I remote into, which are few and stable enough that an encrypted-secrets framework (sops-nix, agenix) is overkill.
 
-**One-time setup:**
+**What lives in git:**
 
-1. Put your user public key (`~/.ssh/id_ed25519.pub`) and each host's public key into [`secrets/secrets.nix`](secrets/secrets.nix). Host keys are auto-generated on first boot; grab them with `ssh-keyscan -t ed25519 <host>`.
+- `~/.ssh/config` — hostnames, addresses, and `IdentityFile` *paths* are declared in [`home/cristian/ssh.nix`](home/cristian/ssh.nix) via `programs.ssh.matchBlocks`. None of this is sensitive.
 
-**Per-secret flow:**
+**What does not live in git:**
 
-```sh
-cd secrets
-agenix -e mysecret.age      # opens $EDITOR; encrypts on save
-```
+- Private key files (`~/.ssh/id_*`). Copy them in during provisioning from an existing machine or a password manager.
 
-Reference it from a module:
+**Provisioning a new host (the manual part):**
 
-```nix
-age.secrets.mysecret.file = ../../secrets/mysecret.age;
-# Decrypted at /run/agenix/mysecret
-# Owner/mode/path are configurable on age.secrets.<name>.{owner,mode,path}
-```
+1. After `nixos-rebuild switch` completes for the first time, copy the private keys into place:
 
-The recipient list in [`secrets/secrets.nix`](secrets/secrets.nix) controls which keys can decrypt which files — adding a new host means re-running `agenix -r` to rewrap existing secrets to include its key.
+   ```sh
+   # From an existing trusted machine:
+   scp ~/.ssh/id_server-1 new-host:~/.ssh/
+   scp ~/.ssh/id_server-2 new-host:~/.ssh/
+   ssh new-host 'chmod 600 ~/.ssh/id_*'
+   ```
+
+2. Verify the SSH config sees them: `ssh -G server-1 | grep identityfile`.
+
+If the day comes when I have more secrets (WiFi passwords on a laptop, API tokens, etc.), agenix is the planned next step — but not before the use case is real.
+
+> **Bootstrap note:** `programs.ssh.enable = true` makes home-manager manage `~/.ssh/config`. If you already have a hand-edited `~/.ssh/config` on the box, move it aside (`mv ~/.ssh/config ~/.ssh/config.bak`) before the first switch, then port its entries into [`home/cristian/ssh.nix`](home/cristian/ssh.nix).
 
 ## Themes
 
