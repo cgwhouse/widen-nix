@@ -6,26 +6,14 @@
 
   nix = {
     settings = {
-      # Automatic cleanup
-      auto-optimise-store = true;
-
       # Enable Flakes
       experimental-features = [
         "nix-command"
         "flakes"
       ];
-
-      # Wheel members can use remote builders, override caches, etc.
-      trusted-users = [
-        "root"
-        "@wheel"
-      ];
-
-      # Silence the "Git tree is dirty" warning during local dev
-      warn-dirty = false;
     };
 
-    # More automatic cleanup
+    # Automatic garbage collect + store optimize
     gc = {
       automatic = true;
       dates = "weekly";
@@ -38,7 +26,7 @@
     };
   };
 
-  # Keep the journal from eating disk on long-running machines
+  # Keep the journal from eating disk
   services.journald.extraConfig = ''
     SystemMaxUse=500M
     SystemKeepFree=1G
