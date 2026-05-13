@@ -8,7 +8,5 @@
   catppuccin.plymouth = {
     enable = true;
     flavor = "mocha";
-    # TODO: accent here too? probably not
-    # accent = "green";
   };
 }
