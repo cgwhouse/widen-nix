@@ -2,7 +2,11 @@
 
 let
   # Needed so allowUnfree applies to the FF extensions too
-  addons = pkgs.callPackage "${inputs.firefox-addons}/default.nix" { };
+  buildMozillaXpiAddon =
+    pkgs.callPackage "${inputs.firefox-addons}/build-mozilla-xpi-addon.nix" { };
+  addons = pkgs.callPackage "${inputs.firefox-addons}/default.nix" {
+    inherit buildMozillaXpiAddon;
+  };
 in
 {
   programs.firefox = {
