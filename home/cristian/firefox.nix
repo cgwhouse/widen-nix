@@ -1,7 +1,8 @@
 { inputs, pkgs, ... }:
 
 let
-  addons = inputs.firefox-addons.packages.${pkgs.system};
+  # Needed so allowUnfree applies to the FF extensions too
+  addons = pkgs.callPackage "${inputs.firefox-addons}/default.nix" { };
 in
 {
   programs.firefox = {
