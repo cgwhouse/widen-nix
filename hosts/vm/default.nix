@@ -3,7 +3,6 @@
 {
   imports = [
     ./hardware.nix
-    ./vm-guest.nix
     ../../modules/nixos
   ];
 
@@ -11,4 +10,9 @@
 
   # Do not touch
   system.stateVersion = "26.05";
+  
+  services = {
+    qemuGuest.enable = true;
+    spice-vdagentd.enable = true;
+  };
 }
