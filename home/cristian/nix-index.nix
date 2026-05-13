@@ -1,10 +1,13 @@
 {
-  # When a command isn't on PATH, suggest the nixpkgs attribute that provides it
-  # instead of the default "command not found" message.
-  programs.nix-index = {
+  # Better error message when a command isn't on PATH
+  programs = {
+
+  command-not-found.enable = false;
+nix-index = {
     enable = true;
     enableZshIntegration = true;
   };
+  };
+  
 
-  programs.command-not-found.enable = false;
 }
