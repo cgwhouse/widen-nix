@@ -15,7 +15,7 @@
     qemuGuest.enable = true;
     spice-vdagentd.enable = true;
   };
-  
+
   # For Plymouth to work on VM
-    boot.initrd.kernelModules = [ "virtio_gpu" ];
+  boot.initrd.kernelModules = [ "virtio_gpu" ];
 }

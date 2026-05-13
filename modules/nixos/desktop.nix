@@ -8,5 +8,4 @@
     xserver.enable = false;
   };
 
-  
 }
