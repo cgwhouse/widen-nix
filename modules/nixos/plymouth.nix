@@ -4,8 +4,7 @@
     consoleLogLevel = 0;
     initrd.verbose = false;
 
-    # systemd-in-initrd lets plymouth start as early as possible,
-    # before any kernel/initrd text would flash on screen.
+    # Let plymouth start as early as possible
     initrd.systemd.enable = true;
 
     kernelParams = [
