@@ -1,17 +1,24 @@
 {
-  # Declarative ~/.ssh/config. Hostnames, addresses, and IdentityFile *paths*
-  # live here in git; the private keys themselves are copied manually during
-  # provisioning (see README).
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
 
     matchBlocks = {
-      # TODO: replace with real entries when migrating from existing ~/.ssh/config.
-      # "server-1" = {
-      #   hostname = "1.2.3.4";
-      #   user = "cristian";
-      #   identityFile = "~/.ssh/id_server-1";
-      # };
+      "widenbot-droplet" = {
+        hostname = "167.99.153.95";
+        user = "root";
+        identityFile = "~/.ssh/id_widenbot_droplet";
+      };
+
+      "buddha-pi5" = {
+        hostname = "192.168.50.244";
+        user = "root";
+        identityFile = "~/.ssh/id_buddha_pi5";
+      };
+
+      "*" = { };
     };
+
+    extraConfig = "SetEnv TERM=xterm-256color";
   };
 }
