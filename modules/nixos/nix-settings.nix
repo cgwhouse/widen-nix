@@ -4,6 +4,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+# Needed so allowUnfree applies to FF extensions too
   nixpkgs.overlays = [ inputs.firefox-addons.overlays.default ];
 
   nix = {
