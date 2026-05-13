@@ -4,7 +4,7 @@
     flavor = "mocha";
     accent = "green";
   };
-  
+
   catppuccin.plymouth = {
     enable = true;
     flavor = "mocha";
