@@ -1,13 +1,5 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
-let
-  # Needed so allowUnfree applies to the FF extensions too
-  buildMozillaXpiAddon =
-    pkgs.callPackage "${inputs.firefox-addons}/build-mozilla-xpi-addon.nix" { };
-  addons = pkgs.callPackage "${inputs.firefox-addons}/default.nix" {
-    inherit buildMozillaXpiAddon;
-  };
-in
 {
   programs.firefox = {
     enable = true;
@@ -18,7 +10,7 @@ in
 
       extensions = {
         force = true;
-        packages = with addons; [
+        packages = with pkgs.firefox-addons; [
           ublock-origin
           privacy-badger
           bitwarden
