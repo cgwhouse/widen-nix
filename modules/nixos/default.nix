@@ -2,7 +2,6 @@
   imports = [
     ./audio.nix
     ./boot.nix
-    ./catppuccin.nix
     ./desktop.nix
     ./firmware.nix
     ./fonts.nix

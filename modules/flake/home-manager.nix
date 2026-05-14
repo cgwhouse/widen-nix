@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
 {
   flake.nixosModules.home-manager = {
     imports = [ inputs.home-manager.nixosModules.home-manager ];
@@ -12,7 +12,7 @@
       users.cristian = {
         imports = [
           ../../home/cristian
-          inputs.catppuccin.homeModules.catppuccin
+          config.flake.homeModules.catppuccin
         ];
       };
     };

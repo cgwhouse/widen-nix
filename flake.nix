@@ -36,6 +36,7 @@
         ./modules/flake/formatter.nix
         ./modules/flake/home-manager.nix
         ./modules/flake/hosts.nix
+        ./modules/flake/features/catppuccin.nix
       ];
     };
 }

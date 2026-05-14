@@ -5,7 +5,7 @@
     specialArgs = { inherit inputs; };
     modules = [
       ../../hosts/vm
-      inputs.catppuccin.nixosModules.catppuccin
+      config.flake.nixosModules.catppuccin
       config.flake.nixosModules.home-manager
     ];
   };

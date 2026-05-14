@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./catppuccin.nix
     ./direnv.nix
     ./firefox.nix
     ./ghostty.nix
