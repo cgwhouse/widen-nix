@@ -2,8 +2,7 @@
 
 let
   # Path to the widen-nix repo, relative to $HOME
-  # NOTE: This does require that this repo be at a well-known path, but this
-  # is standard convention for me, so will do it to satisfy VS Code
+  # NOTE: This does require that this repo be at a well-known path
   widenNixPath = "repos/widen-nix";
 in
 {
@@ -88,7 +87,6 @@ in
           "backspace"
           "delete"
         ];
-
       };
     };
   };

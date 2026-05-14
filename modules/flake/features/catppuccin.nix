@@ -1,9 +1,11 @@
 { lib, inputs, ... }:
+
 let
   theme = {
     flavor = "mocha";
     accent = "green";
   };
+
   cap = s: (lib.toUpper (builtins.substring 0 1 s)) + (builtins.substring 1 (-1) s);
 in
 {
@@ -37,6 +39,7 @@ in
           flavour = [ theme.flavor ];
           accents = [ theme.accent ];
         })
+
         pkgs.catppuccin-cursors."${theme.flavor}${cap theme.accent}"
       ];
 

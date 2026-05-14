@@ -7,5 +7,4 @@
     # Disable X11
     xserver.enable = false;
   };
-
 }
