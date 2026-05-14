@@ -10,6 +10,8 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
+    import-tree.url = "github:vic/import-tree";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,15 +30,10 @@
   };
 
   outputs =
-    inputs@{ flake-parts, ... }:
+    inputs@{ flake-parts, import-tree, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
-      imports = [
-        ./modules/flake/formatter.nix
-        ./modules/flake/home-manager.nix
-        ./modules/flake/hosts.nix
-        ./modules/flake/features/catppuccin.nix
-      ];
+      imports = [ (import-tree ./modules/flake) ];
     };
 }

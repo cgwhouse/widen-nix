@@ -1,19 +1,7 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
-  imports = [
-    ./direnv.nix
-    ./firefox.nix
-    ./ghostty.nix
-    ./git.nix
-    ./neovim.nix
-    ./nix-index.nix
-    ./plasma.nix
-    ./ssh.nix
-    ./starship.nix
-    ./vscode.nix
-    ./zsh.nix
-  ];
+  imports = [ (inputs.import-tree ./.) ];
 
   programs.home-manager.enable = true;
 
