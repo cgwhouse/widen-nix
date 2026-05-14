@@ -28,54 +28,14 @@
   };
 
   outputs =
-    inputs@{
-      flake-parts,
-      nixpkgs,
-      catppuccin,
-      home-manager,
-      ...
-    }:
+    inputs@{ flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
-      perSystem =
-        { pkgs, ... }:
-        {
-          formatter = pkgs.nixfmt;
-        };
-
-      flake =
-        let
-          mkHost =
-            dir:
-            nixpkgs.lib.nixosSystem {
-              system = "x86_64-linux";
-              specialArgs = { inherit inputs; };
-              modules = [
-                ./hosts/${dir}
-                catppuccin.nixosModules.catppuccin
-
-                home-manager.nixosModules.home-manager
-                {
-                  home-manager.useGlobalPkgs = true;
-                  home-manager.useUserPackages = true;
-                  home-manager.extraSpecialArgs = { inherit inputs; };
-                  home-manager.sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
-
-                  home-manager.users.cristian = {
-                    imports = [
-                      ./home/cristian
-                      catppuccin.homeModules.catppuccin
-                    ];
-                  };
-                }
-              ];
-            };
-        in
-        {
-          nixosConfigurations = {
-            widen-nix-vm = mkHost "vm";
-          };
-        };
+      imports = [
+        ./modules/flake/formatter.nix
+        ./modules/flake/home-manager.nix
+        ./modules/flake/hosts.nix
+      ];
     };
 }
