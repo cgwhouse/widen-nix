@@ -1,36 +1,97 @@
 # widen-nix
 
-My NixOS config
+My NixOS config. Flakes + Home Manager + Dendritic pattern.
 
-## Fresh install bootstrap
+Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `vscode.nix`)
 
-Steps to run once on a freshly-installed host (after `nixos-install` and first boot). The flake builds and activates without any of these, but a few subsystems need a one-time manual nudge before they're fully usable.
+## TODO
 
-### 1. Build the `nix-index` database
+- Merge existing dev branch to main
+- Solidify new host setup instructions, full end-to-end test
+- Finish remaining VS Code config
+- Get a sense of dev environment / working with a repo
+- Steam, Discord, Spotify
+- steam second drive
+- virt-manager
+- more browser stuff, browser config
+- hardware acceleration
 
-`nix-index` powers `command-not-found` lookups and similar. The database is not built on activation — it has to be populated manually:
+## New Host Setup (WIP)
 
-```sh
-nix-index
-```
+- Perform standard install
+- Add git and openssh and rebuild, then clone this repo to the expected location:
 
-This takes a few minutes the first time and pulls a lot. No scheduled refresh is wired up; re-run after major channel bumps.
+  ```sh
+  mkdir ~/repos
+  git clone https://github.com/cgwhouse/widen-nix ~/repos
+  ```
 
-### 2. Provision agenix secrets
+- Create a new directory under `hosts`, then copy `hardware-configuration.nix` into it:
 
-`services.openssh` generates `/etc/ssh/ssh_host_ed25519_key{,.pub}` on first activation. agenix uses that SSH key as the host's identity, and `age` accepts the raw SSH pubkey directly as a recipient — no `ssh-to-age` conversion needed.
+  ```sh
+  $HOSTNICKNAME=example
 
-1. Read the host's SSH pubkey:
+  mkdir ~/repos/widen-nix/hosts/$HOSTNICKNAME
+  cp /etc/nixos/hardware-configuration.nix ~/repos/widen-nix/hosts/$HOSTNICKNAME/hardware.nix
+  ```
+
+- Copy `default.nix` from a pre-existing host and make any necessary edits (e.g. `networking.hostName`)
+
+- Add a block to `modules/flake/hosts.nix`, should be able to copy everything and just change the name of the flake itself
+
+- Temporarily remove `modules/nixos/agenix-secrets.nix`
+
+- Rebuild, using the flake this time, and reboot after for good measure:
+
+  ```sh
+  # TODO: test this and put the correct command
+  ```
+
+- Restore `agenix-secrets.nix`
+
+- Update `secrets.nix` with SSH public keys:
+
+  ```sh
+  # Root / host key
+  cat /etc/ssh/ssh_host_ed25519_key.pub
+
+  # User key
+  ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N ""
+  cat ~/.ssh/id_ed25519.pub
+  ```
+
+- Re-key secrets:
+
+  ```sh
+  agenix -r
+  ```
+
+- Commit everything and rebuild one more time with `pkgup`, then reboot again
+
+- Run `pkgcl` so we are starting with our clean slate, then `nix-index`
+
+### Provision agenix secrets (OLD)
+
+Each secret needs **two recipients**: a _host_ identity so the system can decrypt at activation, and a _personal_ identity so you can decrypt for editing as your normal user. `age` accepts raw SSH pubkeys directly — no `ssh-to-age` conversion needed.
+
+1. Make sure `services.openssh` has generated the host key (`/etc/ssh/ssh_host_ed25519_key{,.pub}` exist after first activation). Then read the pubkey:
 
    ```sh
    cat /etc/ssh/ssh_host_ed25519_key.pub
    ```
 
-   The value looks like `ssh-ed25519 AAAAC3Nz... root@widen-nix-vm`.
+2. Generate a personal SSH key for cristian (if there isn't one) and grab its pubkey:
 
-2. Paste it into `secrets.nix` (at the repo root — agenix expects `./secrets.nix` in the cwd when you run `agenix -e`) as the `vm-host` recipient, then commit.
+   ```sh
+   ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N ""
+   cat ~/.ssh/id_ed25519.pub
+   ```
 
-3. From the repo root, create or edit each encrypted secret:
+   `agenix -e` will pick this up automatically from `~/.ssh/id_ed25519` — no `-i` flag needed.
+
+3. Paste both pubkeys into `secrets.nix` (at the repo root — agenix expects `./secrets.nix` in the cwd) as the `vm-host` and `cristian-vm` recipients, and add them to each `publicKeys` list. Commit.
+
+4. From the repo root, create or edit each encrypted secret:
 
    ```sh
    nix run github:ryantm/agenix -- -e secrets/ssh-matchblocks.age
@@ -38,26 +99,14 @@ This takes a few minutes the first time and pulls a lot. No scheduled refresh is
 
    Plaintext for `ssh-matchblocks.age` is an OpenSSH config snippet (`Host` / `HostName` / `User` / `IdentityFile` blocks).
 
-4. Sanity-check that the host can decrypt before rebuilding:
+5. Sanity-check that the host can decrypt before rebuilding:
 
    ```sh
    sudo nix shell nixpkgs#age -c age -d -i /etc/ssh/ssh_host_ed25519_key secrets/ssh-matchblocks.age
    ```
 
-   Should print the plaintext. If it errors with "no identity matched any of the recipients", the recipient in `secrets.nix` doesn't match the current host key — re-copy the pubkey and re-encrypt.
+   Should print the plaintext. If it errors with "no identity matched any of the recipients", the host pubkey in `secrets.nix` doesn't match the current host key — re-copy and re-encrypt.
 
-After committing the `.age` file and rebuilding, `/run/agenix/ssh-matchblocks` is populated on every boot and pulled into `~/.ssh/config` via `Include`.
+After committing the `.age` file and rebuilding, `/run/agenix/ssh-matchblocks` is populated on every boot and pulled into `~/.ssh/config` via `Include`. Day-to-day, `agenix -e <file>` works as cristian without sudo.
 
-### 3. Drop in a profile picture (optional)
-
-Place a square PNG at `home/cristian/assets/profile.png` and rebuild. `~/.face` gets symlinked automatically; SDDM and KDE will pick it up.
-
-## TODO
-
-- Finish VS Code config
-- Get a sense of dev environment / working with a repo
-- Steam, Discord, Spotify
-- virt-manager
-- browser config
-- hardware acceleration
-- DRM on Chromium
+When you add another host: capture its host SSH pubkey and its editor's personal SSH pubkey, add both as recipients to whichever secrets that host should be able to use, then `agenix -r` to rekey.
