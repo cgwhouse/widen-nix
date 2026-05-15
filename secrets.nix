@@ -7,13 +7,9 @@
 #                 nix run nixpkgs#age -- -k > ~/.config/age/keys.txt
 #                 nix run nixpkgs#age -- -y ~/.config/age/keys.txt
 let
-  vm-host = "age1ugya9nzencd7vsdq0k6vmufp4an9n0j3ddvfchqfsdvptm5x9qks4lg2xe";
-  vm-personal = "age1gqw7ul3wwnexj20ah7yt8ydqd76r4anen3wm6z6nj6ga7yrr2dnq3jknz7";
+  vm-host = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAeDRamBXD78beSvm0KTKSoOaqHUu54qMw+SFusmUb38 root@widen-nix-vm";
 
-  all = [
-    vm-host
-    vm-personal
-  ];
+  all = [ vm-host ];
 in
 {
   "secrets/ssh-matchblocks.age".publicKeys = all;
