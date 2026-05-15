@@ -3,21 +3,12 @@
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = {
-      "widenbot-droplet" = {
-        hostname = "167.99.153.95";
-        user = "root";
-        identityFile = "~/.ssh/id_widenbot_droplet";
-      };
+    matchBlocks."*" = { };
 
-      "buddha-pi5" = {
-        hostname = "192.168.50.244";
-        user = "root";
-        identityFile = "~/.ssh/id_buddha_pi5";
-      };
-
-      "*" = { };
-    };
+    # Personal host blocks live in an agenix-encrypted file. The decrypted
+    # plaintext is an OpenSSH config snippet at the path below; modern
+    # OpenSSH silently skips a missing Include, so this is safe pre-bootstrap.
+    includes = [ "/run/agenix/ssh-matchblocks" ];
 
     extraConfig = "SetEnv TERM=xterm-256color";
   };

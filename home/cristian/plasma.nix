@@ -7,6 +7,19 @@
     input.keyboard.numlockOnStartup = "on";
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
 
+    powerdevil.AC = {
+      autoSuspend.action = "nothing";
+      turnOffDisplay.idleTimeout = "never";
+      dimDisplay.enable = false;
+      powerButtonAction = "nothing";
+    };
+
+    kscreenlocker = {
+      autoLock = false;
+      lockOnResume = false;
+      timeout = 0;
+    };
+
     shortcuts = {
       kwin = {
         "Window Close" = [
