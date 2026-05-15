@@ -16,26 +16,21 @@ nix-index
 
 This takes a few minutes the first time and pulls a lot. No scheduled refresh is wired up; re-run after major channel bumps.
 
-### 2. Generate the host's age identity and provision agenix secrets
+### 2. Provision agenix secrets
 
-`services.openssh` generates `/etc/ssh/ssh_host_ed25519_key{,.pub}` on first activation. agenix reuses that key as the host's age identity, so once the file exists you can:
+`services.openssh` generates `/etc/ssh/ssh_host_ed25519_key{,.pub}` on first activation. agenix uses that SSH key as the host's identity, and `age` accepts the raw SSH pubkey directly as a recipient — no `ssh-to-age` conversion needed.
 
-1. Derive the host's age pubkey:
-
-   ```sh
-   nix run nixpkgs#ssh-to-age -- < /etc/ssh/ssh_host_ed25519_key.pub
-   ```
-
-2. On your dev machine, generate a personal age key for *editing* secrets (`age-keygen` lives inside the `age` package, so use `nix shell ... -c` rather than `nix run`):
+1. Read the host's SSH pubkey:
 
    ```sh
-   mkdir -p ~/.config/age
-   nix shell nixpkgs#age -c age-keygen -o ~/.config/age/keys.txt
-   nix shell nixpkgs#age -c age-keygen -y ~/.config/age/keys.txt    # prints the pubkey
+   cat /etc/ssh/ssh_host_ed25519_key.pub
    ```
 
-3. Paste both pubkeys into `secrets.nix` (at the repo root — agenix expects `./secrets.nix` in the cwd when you run `agenix -e`) and commit.
-4. From the repo root, create or edit each encrypted secret:
+   The value looks like `ssh-ed25519 AAAAC3Nz... root@widen-nix-vm`.
+
+2. Paste it into `secrets.nix` (at the repo root — agenix expects `./secrets.nix` in the cwd when you run `agenix -e`) as the `vm-host` recipient, then commit.
+
+3. From the repo root, create or edit each encrypted secret:
 
    ```sh
    nix run github:ryantm/agenix -- -e secrets/ssh-matchblocks.age
@@ -43,7 +38,15 @@ This takes a few minutes the first time and pulls a lot. No scheduled refresh is
 
    Plaintext for `ssh-matchblocks.age` is an OpenSSH config snippet (`Host` / `HostName` / `User` / `IdentityFile` blocks).
 
-After committing the `.age` file and rebuilding, `/run/agenix/ssh-matchblocks` will be populated on every boot and pulled into `~/.ssh/config` via `Include`.
+4. Sanity-check that the host can decrypt before rebuilding:
+
+   ```sh
+   sudo nix shell nixpkgs#age -c age -d -i /etc/ssh/ssh_host_ed25519_key secrets/ssh-matchblocks.age
+   ```
+
+   Should print the plaintext. If it errors with "no identity matched any of the recipients", the recipient in `secrets.nix` doesn't match the current host key — re-copy the pubkey and re-encrypt.
+
+After committing the `.age` file and rebuilding, `/run/agenix/ssh-matchblocks` is populated on every boot and pulled into `~/.ssh/config` via `Include`.
 
 ### 3. Drop in a profile picture (optional)
 
