@@ -7,6 +7,7 @@
     input.keyboard.numlockOnStartup = "on";
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
 
+    # Disable auto power management stuff
     powerdevil.AC = {
       autoSuspend.action = "nothing";
       turnOffDisplay.idleTimeout = "never";

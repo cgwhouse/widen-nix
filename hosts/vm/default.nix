@@ -18,5 +18,4 @@
 
   # Do not touch
   system.stateVersion = "26.05";
-
 }
