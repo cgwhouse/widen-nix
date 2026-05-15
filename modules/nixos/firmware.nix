@@ -1,8 +1,4 @@
 {
-  hardware = {
-    enableRedistributableFirmware = true;
-    enableAllFirmware = true;
-  };
-
+  hardware.enableAllFirmware = true;
   services.fwupd.enable = true;
 }

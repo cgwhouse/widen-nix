@@ -7,8 +7,6 @@ in
 {
   imports = map (n: ./. + "/${n}") moduleNames;
 
-  programs.home-manager.enable = true;
-
   home = {
     username = "cristian";
     homeDirectory = "/home/cristian";

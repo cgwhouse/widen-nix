@@ -11,7 +11,10 @@
     users.cristian = {
       isNormalUser = true;
       description = "Cristian Widenhouse";
-      extraGroups = [ "wheel" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+      ];
     };
   };
 }
