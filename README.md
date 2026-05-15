@@ -26,15 +26,15 @@ This takes a few minutes the first time and pulls a lot. No scheduled refresh is
    nix run nixpkgs#ssh-to-age -- < /etc/ssh/ssh_host_ed25519_key.pub
    ```
 
-2. On your dev machine, generate a personal age key for *editing* secrets:
+2. On your dev machine, generate a personal age key for *editing* secrets (`age-keygen` lives inside the `age` package, so use `nix shell ... -c` rather than `nix run`):
 
    ```sh
    mkdir -p ~/.config/age
-   nix run nixpkgs#age-keygen -- -o ~/.config/age/keys.txt
-   nix run nixpkgs#age-keygen -- -y ~/.config/age/keys.txt    # prints the pubkey
+   nix shell nixpkgs#age -c age-keygen -o ~/.config/age/keys.txt
+   nix shell nixpkgs#age -c age-keygen -y ~/.config/age/keys.txt    # prints the pubkey
    ```
 
-3. Paste both pubkeys into `secrets/secrets.nix` (replacing the `REPLACEME` placeholders) and commit.
+3. Paste both pubkeys into `secrets.nix` (at the repo root — agenix expects `./secrets.nix` in the cwd when you run `agenix -e`) and commit.
 4. From the repo root, create or edit each encrypted secret:
 
    ```sh
