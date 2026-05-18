@@ -53,7 +53,7 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 
 - Restore `agenix-secrets.nix`
 
-- Update `secrets.nix` with SSH public keys:
+- Update `secrets.nix` with the new host's SSH public keys:
 
   ```sh
   # Root / host key
