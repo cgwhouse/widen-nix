@@ -17,21 +17,24 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 
 ## New Host Setup
 
-- Perform a standard NixOS install
+- Perform standard install
 
-- Add `git` to the system config, rebuild, then clone this repo to the expected location:
+- Add git and rebuild, then clone this repo to the expected location:
 
   ```sh
   mkdir -p ~/repos/widen-nix
   git clone https://github.com/cgwhouse/widen-nix ~/repos/widen-nix
   ```
 
-- Create and check out a new branch
+- Create a new branch and switch to it
 
-- Pick a host nickname and scaffold its directory under `hosts/`, copying in `hardware-configuration.nix`:
+- Create a new directory under `hosts`, then copy `hardware-configuration.nix` into it:
 
   ```sh
   HOSTNICKNAME=example
+  ```
+
+  ```sh
   mkdir ~/repos/widen-nix/hosts/$HOSTNICKNAME
   cp /etc/nixos/hardware-configuration.nix ~/repos/widen-nix/hosts/$HOSTNICKNAME/hardware.nix
   ```
@@ -40,13 +43,12 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 
 - Add a new block to `modules/flake/hosts.nix`
 
-- Stage and commit the changes so far, then temporarily remove `modules/nixos/agenix-secrets.nix`
+- Stage / commit all of these changes so far, then temporarily remove `modules/nixos/agenix-secrets.nix`
 
-- Rebuild using the flake, then reboot for good measure:
+- Rebuild using the flake this time, and reboot after for good measure:
 
   ```sh
-  sudo nixos-rebuild switch --flake .#$HOSTNICKNAME
-  sudo reboot
+  sudo nixos-rebuild switch --flake .#<NAME_OF_FLAKE>
   ```
 
 - Restore `agenix-secrets.nix`
@@ -62,14 +64,14 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
   cat ~/.ssh/id_ed25519.pub
   ```
 
-- Push the branch to the remote
+- Push all of these changes to the remote
 
-- On a machine that's already authorized, pull the branch and re-key secrets to include the new host:
+- Pull down this branch onto a machine that already has authorization, then re-key secrets to include the newly created host in addition:
 
   ```sh
   agenix -r
   ```
 
-- Commit and push, then back on the new host pull the changes and rebuild once more with `pkgup`, followed by another reboot
+- Commit everything, pull everything back down to the new machine, and rebuild one more time with `pkgup`. Then, reboot again
 
-- Run `pkgcl` to start from a clean slate, then `nix-index`
+- Run `pkgcl` so we are starting with our clean slate, then `nix-index`
