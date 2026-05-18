@@ -19,6 +19,8 @@
       autoLock = false;
       lockOnResume = false;
       timeout = 0;
+
+      appearance.showMediaControls = false;
     };
 
     shortcuts = {

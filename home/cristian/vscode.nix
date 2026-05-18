@@ -27,6 +27,11 @@ in
           nixd.formatting.command = [ "nixfmt" ];
         };
 
+        # Fonts
+        "editor.fontSize" = 15;
+        "editor.fontLigatures" = true;
+        "editor.fontFamily" = "FiraCode Nerd Font";
+
         # Theming bits (applied by catppuccin.nix global enable)
         "window.titleBarStyle" = "custom";
         "workbench.colorTheme" = "Catppuccin Mocha";
