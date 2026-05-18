@@ -105,6 +105,7 @@ in
       nixd = {
         formatting.command = [ "nixfmt" ];
         options.nixos.expr = ''(builtins.getFlake "''${workspaceFolder}").nixosConfigurations.${osConfig.networking.hostName}.options'';
+        options.home-manager.expr = ''(builtins.getFlake "''${workspaceFolder}").nixosConfigurations.${osConfig.networking.hostName}.options.home-manager.users.type.getSubOptions [ ]'';
       };
     };
   };
