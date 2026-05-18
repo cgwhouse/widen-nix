@@ -19,6 +19,7 @@ in
       userSettings = {
         # General
         "explorer.confirmDragAndDrop" = false;
+        "explorer.confirmDelete" = false;
 
         # Nix Meta
         "nix.enableLanguageServer" = true;
