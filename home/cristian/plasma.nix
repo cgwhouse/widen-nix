@@ -29,5 +29,12 @@
         ];
       };
     };
+
+    fonts = {
+      general = {
+        family = "Ubuntu Nerd Font";
+        pointSize = 13;
+      };
+    };
   };
 }
