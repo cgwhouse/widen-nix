@@ -6,7 +6,6 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 
 ## TODO
 
-- Merge existing dev branch to main
 - Solidify new host setup instructions, full end-to-end test
 - Fonts
 - Finish remaining VS Code config
@@ -23,8 +22,8 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 - Add git and openssh and rebuild, then clone this repo to the expected location:
 
   ```sh
-  mkdir ~/repos
-  git clone https://github.com/cgwhouse/widen-nix ~/repos
+  mkdir ~/repos/widen-nix
+  git clone https://github.com/cgwhouse/widen-nix ~/repos/widen-nix
   ```
 
 - Create a new directory under `hosts`, then copy `hardware-configuration.nix` into it:
