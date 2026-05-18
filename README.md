@@ -8,6 +8,7 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 
 - Merge existing dev branch to main
 - Solidify new host setup instructions, full end-to-end test
+- Fonts
 - Finish remaining VS Code config
 - Get a sense of dev environment / working with a repo
 - Steam, Discord, Spotify
