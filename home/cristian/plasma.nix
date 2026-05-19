@@ -112,11 +112,12 @@
                   label = "CPU %";
                 }
               ];
-              totalSensors = [ "cpu/all/usage" ];
-              textOnlySensors = [
-                "cpu/all/cpuCount"
-                "cpu/all/coreCount"
-              ];
+              # Workaround: typed totalSensors/textOnlySensors emit double-escaped JSON
+              settings.Sensors = {
+                highPrioritySensorIds = ''["cpu/all/usage"]'';
+                lowPrioritySensorIds = ''["cpu/all/cpuCount", "cpu/all/coreCount"]'';
+                totalSensors = ''["cpu/all/usage"]'';
+              };
             };
           }
           {
@@ -130,8 +131,12 @@
                   label = "Memory";
                 }
               ];
-              totalSensors = [ "memory/physical/usedPercent" ];
-              textOnlySensors = [ "memory/physical/total" ];
+              # Workaround: typed totalSensors/textOnlySensors emit double-escaped JSON
+              settings.Sensors = {
+                highPrioritySensorIds = ''["memory/physical/used"]'';
+                lowPrioritySensorIds = ''["memory/physical/total"]'';
+                totalSensors = ''["memory/physical/usedPercent"]'';
+              };
             };
           }
         ];
