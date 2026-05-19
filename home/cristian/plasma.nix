@@ -98,8 +98,8 @@
               sensors = [
                 {
                   name = "cpu/all/usage";
-                  # color = "180,190,254";
-                  # label = "CPU %";
+                  color = "180,190,254";
+                  label = "CPU %";
                 }
               ];
             };
@@ -111,8 +111,8 @@
               sensors = [
                 {
                   name = "memory/physical/used";
-                  # color = "166,227,161";
-                  # label = "Memory";
+                  color = "166,227,161";
+                  label = "Memory";
                 }
               ];
             };
