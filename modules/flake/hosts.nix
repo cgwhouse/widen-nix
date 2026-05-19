@@ -9,6 +9,7 @@
       config.flake.nixosModules.catppuccin
       config.flake.nixosModules.home-manager
       config.flake.nixosModules.agenix
+      config.flake.nixosModules.gaming
     ];
   };
 }
