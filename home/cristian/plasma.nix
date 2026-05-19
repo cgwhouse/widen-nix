@@ -82,11 +82,13 @@
           {
             iconTasks = {
               launchers = [
+                "preferred://filemanager"
+                "preferred://terminal"
                 "applications:firefox.desktop"
-                "applications:com.mitchellh.ghostty.desktop"
+                # "applications:com.mitchellh.ghostty.desktop"
                 "applications:code.desktop"
-                "applications:discord.desktop"
-                "applications:org.kde.dolphin.desktop"
+                # "applications:discord.desktop"
+                # "applications:org.kde.dolphin.desktop"
               ];
             };
           }
