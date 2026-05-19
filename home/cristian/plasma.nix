@@ -79,21 +79,31 @@
             };
           }
           "org.kde.plasma.pager"
-          "org.kde.plasma.icontasks"
+          {
+            iconTasks = {
+              launchers = [
+                "applications:firefox.desktop"
+                "applications:com.mitchellh.ghostty.desktop"
+                "applications:code.desktop"
+                "applications:discord.desktop"
+                "applications:org.kde.dolphin.desktop"
+              ];
+            };
+          }
           "org.kde.plasma.marginsseparator"
           "org.kde.plasma.systemtray"
           {
             digitalClock = {
               date = {
                 enable = true;
-                format.custom = "ddd d MMM";
+                format.custom = "ddd, MMM d";
                 position = "belowTime";
               };
             };
           }
           {
             systemMonitor = {
-              title = "CPU";
+              title = "Total CPU Use";
               displayStyle = "org.kde.ksysguard.piechart";
               sensors = [
                 {
@@ -102,11 +112,16 @@
                   label = "CPU %";
                 }
               ];
+              totalSensors = [ "cpu/all/usage" ];
+              textOnlySensors = [
+                "cpu/all/cpuCount"
+                "cpu/all/coreCount"
+              ];
             };
           }
           {
             systemMonitor = {
-              title = "Memory";
+              title = "Memory Usage";
               displayStyle = "org.kde.ksysguard.piechart";
               sensors = [
                 {
@@ -115,6 +130,8 @@
                   label = "Memory";
                 }
               ];
+              totalSensors = [ "memory/physical/usedPercent" ];
+              textOnlySensors = [ "memory/physical/total" ];
             };
           }
         ];
