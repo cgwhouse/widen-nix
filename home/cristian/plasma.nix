@@ -68,6 +68,7 @@
 
     panels = [
       {
+        floating = true;
         location = "bottom";
         lengthMode = "fit";
         widgets = [
