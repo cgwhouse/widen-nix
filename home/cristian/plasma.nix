@@ -94,12 +94,12 @@
           {
             systemMonitor = {
               title = "CPU";
-              displayStyle = "org.kde.ksysguard.barchart";
+              displayStyle = "org.kde.ksysguard.piechart";
               sensors = [
                 {
                   name = "cpu/all/usage";
-                  color = "180,190,254";
-                  label = "CPU %";
+                  # color = "180,190,254";
+                  # label = "CPU %";
                 }
               ];
             };
@@ -107,12 +107,12 @@
           {
             systemMonitor = {
               title = "Memory";
-              displayStyle = "org.kde.ksysguard.barchart";
+              displayStyle = "org.kde.ksysguard.piechart";
               sensors = [
                 {
                   name = "memory/physical/used";
-                  color = "166,227,161";
-                  label = "Memory";
+                  # color = "166,227,161";
+                  # label = "Memory";
                 }
               ];
             };
