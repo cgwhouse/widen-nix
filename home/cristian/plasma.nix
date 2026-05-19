@@ -72,46 +72,50 @@
         lengthMode = "fit";
         widgets = [
           {
-            name = "org.kde.plasma.kickoff";
-            icon = "nix-snowflake";
-            showButtonsFor = "powerAndSession";
-            showActionButtonCaptions = false;
+            kickoff = {
+              icon = "nix-snowflake";
+              showButtonsFor = "powerAndSession";
+              showActionButtonCaptions = false;
+            };
           }
           "org.kde.plasma.pager"
           "org.kde.plasma.icontasks"
           "org.kde.plasma.marginsseparator"
           "org.kde.plasma.systemtray"
           {
-            name = "org.kde.plasma.digitalclock";
-            date = {
-              enable = true;
-              format.custom = "ddd d MMM";
-              position = "belowTime";
+            digitalClock = {
+              date = {
+                enable = true;
+                format.custom = "ddd d MMM";
+                position = "belowTime";
+              };
             };
           }
           {
-            name = "org.kde.plasma.systemmonitor";
-            title = "CPU";
-            displayStyle = "org.kde.ksysguard.barchart";
-            sensors = [
-              {
-                name = "cpu/all/usage";
-                color = "180,190,254";
-                label = "CPU %";
-              }
-            ];
+            systemMonitor = {
+              title = "CPU";
+              displayStyle = "org.kde.ksysguard.barchart";
+              sensors = [
+                {
+                  name = "cpu/all/usage";
+                  color = "180,190,254";
+                  label = "CPU %";
+                }
+              ];
+            };
           }
           {
-            name = "org.kde.plasma.systemmonitor";
-            title = "Memory";
-            displayStyle = "org.kde.ksysguard.barchart";
-            sensors = [
-              {
-                name = "memory/physical/used";
-                color = "166,227,161";
-                label = "Memory";
-              }
-            ];
+            systemMonitor = {
+              title = "Memory";
+              displayStyle = "org.kde.ksysguard.barchart";
+              sensors = [
+                {
+                  name = "memory/physical/used";
+                  color = "166,227,161";
+                  label = "Memory";
+                }
+              ];
+            };
           }
         ];
       }
