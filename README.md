@@ -9,7 +9,6 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 - Finish remaining VS Code config
 - Get a sense of dev environment / working with a repo
 - Spotify
-- Plasma panel, application launcher
 - steam second drive
 - virt-manager
 - more browser stuff, browser config

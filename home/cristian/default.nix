@@ -22,6 +22,8 @@ in
     fastfetch
     git-credential-manager
     ripgrep
+
+    spotify
   ];
 
   # Do not touch
