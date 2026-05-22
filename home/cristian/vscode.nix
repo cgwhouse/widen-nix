@@ -15,6 +15,10 @@ in
         christian-kohler.path-intellisense
         asvetliakov.vscode-neovim
         jgclark.vscode-todo-highlight
+        ms-python.python
+        ms-python.black-formatter
+        ms-python.isort
+
       ];
 
       userSettings = {
