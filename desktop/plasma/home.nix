@@ -1,6 +1,16 @@
-{ ... }:
-
 {
+  config,
+  lib,
+  inputs,
+  ...
+}:
+
+let
+  cap = s: (lib.toUpper (builtins.substring 0 1 s)) + (builtins.substring 1 (-1) s);
+in
+{
+  imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
+
   programs.plasma = {
     enable = true;
 
@@ -9,7 +19,6 @@
 
     configFile.kwinrc.TabBox.HighlightWindows = false;
 
-    # Disable auto power management stuff
     powerdevil.AC = {
       autoSuspend.action = "nothing";
       turnOffDisplay.idleTimeout = "never";
@@ -32,6 +41,11 @@
           "Alt+F4"
         ];
       };
+    };
+
+    workspace = {
+      lookAndFeel = "Catppuccin-${cap config.catppuccin.flavor}-${cap config.catppuccin.accent}";
+      cursor.theme = "catppuccin-${config.catppuccin.flavor}-${config.catppuccin.accent}-cursors";
     };
 
     fonts = {

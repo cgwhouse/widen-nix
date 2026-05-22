@@ -42,10 +42,5 @@ in
 
         pkgs.catppuccin-cursors."${theme.flavor}${cap theme.accent}"
       ];
-
-      programs.plasma.workspace = {
-        lookAndFeel = "Catppuccin-${cap theme.flavor}-${cap theme.accent}";
-        cursor.theme = "catppuccin-${theme.flavor}-${theme.accent}-cursors";
-      };
     };
 }

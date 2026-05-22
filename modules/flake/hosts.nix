@@ -17,6 +17,12 @@ let
 in
 {
   flake.nixosConfigurations = {
-    widen-nix-vm = mkSystem ([ ../../hosts/vm ] ++ common);
+    widen-nix-vm = mkSystem (
+      [
+        ../../hosts/vm
+        config.flake.nixosModules.plasma
+      ]
+      ++ common
+    );
   };
 }
