@@ -26,7 +26,4 @@
       enableSpawn = false;
     };
   };
-
-  # DMS ships its own polkit agent; disable niri-flake's KDE one to avoid conflict.
-  systemd.user.services.niri-flake-polkit.enable = false;
 }
