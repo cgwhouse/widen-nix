@@ -33,6 +33,7 @@ in
       "Mod+Return".action = spawn "ghostty";
       "Mod+B".action = spawn "firefox";
       "Mod+Alt+C".action = close-window;
+      "Alt+Space".action = spawn "dms" "ipc" "spotlight" "toggle";
 
       "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
       "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";
