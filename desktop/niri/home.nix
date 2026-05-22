@@ -1,4 +1,9 @@
-{ config, inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 
 let
   # Catppuccin's DMS theme bundle (multi-flavor + accent matrix).
@@ -152,6 +157,11 @@ in
     # bundle is a multi-flavor theme keyed by its `id` ("catppuccin"), and the
     # per-flavor selection lives under registryThemeVariants.<id>.<mode>.
     settings = {
+      use24HourClock = false;
+      weatherEnabled = true;
+      useAutoLocation = true;
+      useFahrenheit = true;
+
       currentThemeName = "custom";
       currentThemeCategory = "custom";
       customThemeFile = "${catppuccinTheme}";
