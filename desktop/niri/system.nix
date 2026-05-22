@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 
 let
-  niriPkgs = inputs.niri.packages.${pkgs.system};
+  niriPkgs = inputs.niri.packages.${pkgs.stdenv.hostPlatform.system};
 in
 {
   programs.niri = {
