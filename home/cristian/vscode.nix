@@ -20,15 +20,15 @@ in
         # General
         "explorer.confirmDragAndDrop" = false;
         "explorer.confirmDelete" = false;
-        "telemetry.telemetryLevel"=  "off";
-        
+        "telemetry.telemetryLevel" = "off";
+
         # Disable Copilot
         "github.copilot.enable" = {
-    "*" = false;
-    "plaintext" = false;
-    "markdown" = false;
-    "scminput"= false;
-  };
+          "*" = false;
+          "plaintext" = false;
+          "markdown" = false;
+          "scminput" = false;
+        };
 
         # Nix Meta
         "nix.enableLanguageServer" = true;
@@ -49,32 +49,32 @@ in
         "catppuccin.accentColor" = "green";
         "editor.semanticHighlighting.enabled" = true;
         "terminal.integrated.minimumContrastRatio" = 1;
-        
-        # TODO Highlight
-        "todohighlight.keywords": [
-    {
-      "text" = "NOTE:";
-      "backgroundColor"= "green";
-      "color"= "white";
-    }
-    {
-      "text"= "XXX:";
-      "backgroundColor"= "blue";
-      "color"= "white";
-    }
-  ];
 
-# Python stuff
-"[python]" = {
-    "editor.defaultFormatter"= "ms-python.black-formatter";
-    "editor.codeActionsOnSave" =  {
-      "source.organizeImports"= "explicit"
-    };
-  };
-  "isort.args" = [
-    "--profile"
-    "black"
-  ];
+        # TODO Highlight
+        "todohighlight.keywords" = [
+          {
+            "text" = "NOTE:";
+            "backgroundColor" = "green";
+            "color" = "white";
+          }
+          {
+            "text" = "XXX:";
+            "backgroundColor" = "blue";
+            "color" = "white";
+          }
+        ];
+
+        # Python stuff
+        "[python]" = {
+          "editor.defaultFormatter" = "ms-python.black-formatter";
+          "editor.codeActionsOnSave" = {
+            "source.organizeImports" = "explicit";
+          };
+        };
+        "isort.args" = [
+          "--profile"
+          "black"
+        ];
 
         # Neovim extension
         "extensions.experimental.affinity" = {
