@@ -8,17 +8,21 @@ in
 {
   programs.vscode = {
     enable = true;
+    mutableExtensionsDir = false;
 
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
+        # Nix Meta
         jnoortheen.nix-ide
         christian-kohler.path-intellisense
+
         asvetliakov.vscode-neovim
         jgclark.vscode-todo-highlight
+
+        # Python stuff
         ms-python.python
         ms-python.black-formatter
         ms-python.isort
-
       ];
 
       userSettings = {
