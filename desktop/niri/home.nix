@@ -6,7 +6,6 @@
 }:
 
 let
-  # Catppuccin's DMS theme bundle (multi-flavor + accent matrix).
   catppuccinTheme = pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/catppuccin/dankmaterialshell/main/catppuccin.json";
     hash = "sha256-3wRf5KBzJ7IUpZGJ10BCIhDfd6b6tUcj8YJ4Q1Cg0a8=";
@@ -19,26 +18,23 @@ let
 in
 {
   imports = [
-    # niri.homeModules.niri is auto-imported by niri-flake's NixOS module
-    # when home-manager runs as a NixOS module — don't re-import here.
+    # NOTE: niri.homeModules.niri is auto-imported by the NixOS module
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
   ];
 
   programs.niri.settings = {
-    # Lifted from niri's default-config.kdl with program-launcher binds swapped
-    # for our own; niri-flake's `settings.binds` default is empty, so anything
-    # not declared here simply doesn't exist.
     binds = with config.lib.niri.actions; {
+      # My custom binds
       "Mod+Return".action = spawn "ghostty";
       "Mod+B".action = spawn "firefox";
       "Mod+Alt+C".action = close-window;
       "Alt+Space".action = spawn "dms" "ipc" "spotlight" "toggle";
 
+      ### Everything below is lifted from the defaults ###
+
       "XF86AudioRaiseVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
       "XF86AudioLowerVolume".action = spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";
-
-      # "Mod+Q".action = close-window;
 
       "Mod+Left".action = focus-column-left;
       "Mod+Down".action = focus-window-down;
@@ -104,8 +100,7 @@ in
       "Mod+7".action = focus-workspace 7;
       "Mod+8".action = focus-workspace 8;
       "Mod+9".action = focus-workspace 9;
-      # move-column-to-workspace takes props + a positional arg, so it's not
-      # exposed via the DSL; use the attrset-tagged form.
+
       "Mod+Ctrl+1".action.move-column-to-workspace = 1;
       "Mod+Ctrl+2".action.move-column-to-workspace = 2;
       "Mod+Ctrl+3".action.move-column-to-workspace = 3;
@@ -129,8 +124,6 @@ in
       "Mod+Shift+Minus".action = set-window-height "-10%";
       "Mod+Shift+Equal".action = set-window-height "+10%";
 
-      # Screenshot actions take struct args, so niri-flake omits them from
-      # config.lib.niri.actions. Use attrset-tagged form instead.
       "Print".action.screenshot = { };
       "Ctrl+Print".action.screenshot-screen = { };
       "Alt+Print".action.screenshot-window = { };
@@ -142,27 +135,25 @@ in
 
   programs.dank-material-shell = {
     enable = true;
-    # systemd.enable and niri.enableSpawn are mutually exclusive per DMS docs.
+
+    # Use the systemd service instead of enableSpawn
     systemd.enable = true;
+    niri.enableSpawn = false;
+
+    # High-level DMS features
     enableSystemMonitoring = true;
     enableVPN = true;
     enableDynamicTheming = true;
     enableClipboardPaste = true;
 
-    niri = {
-      # Keybinds flow via niri.includes (DMS default); don't also enableKeybinds.
-      enableSpawn = false; # mutually exclusive with systemd.enable above
-    };
-
-    # Theme category "custom" tells DMS to load customThemeFile; the catppuccin
-    # bundle is a multi-flavor theme keyed by its `id` ("catppuccin"), and the
-    # per-flavor selection lives under registryThemeVariants.<id>.<mode>.
+    # Other settings via DMS UI
     settings = {
       use24HourClock = false;
       weatherEnabled = true;
-      useAutoLocation = true;
       useFahrenheit = true;
+      useAutoLocation = true;
 
+      # Theme + Wallpaper
       currentThemeName = "custom";
       currentThemeCategory = "custom";
       customThemeFile = "${catppuccinTheme}";
@@ -170,10 +161,7 @@ in
         flavor = "mocha";
         accent = "green";
       };
-    };
-
-    session = {
-      wallpaperPath = "${wallpaper}";
+      session.wallpaperPath = "${wallpaper}";
     };
   };
 }

@@ -6,14 +6,16 @@
 
     packages = with pkgs; [
       nerd-fonts.ubuntu
-      lora
       nerd-fonts.fira-code
       noto-fonts-color-emoji
-    ];
+ 
+      # Just in case I never need a Serif font
+      lora
+   ];
 
     fontconfig.defaultFonts = {
       serif = [ "Lora" ];
-      sansSerif = [ "Ubuntu" ];
+      sansSerif = [ "Ubuntu Nerd Font" ];
       monospace = [ "FiraCode Nerd Font" ];
       emoji = [ "Noto Color Emoji" ];
     };

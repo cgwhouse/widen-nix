@@ -20,9 +20,7 @@ in
     nixfmt-tree
 
     fastfetch
-    git-credential-manager
     ripgrep
-
     spotify
   ];
 

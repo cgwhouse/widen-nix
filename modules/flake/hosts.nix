@@ -9,6 +9,7 @@ let
       inherit modules;
     };
 
+# All hosts will use these
   common = [
     config.flake.nixosModules.catppuccin
     config.flake.nixosModules.home-manager
