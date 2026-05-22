@@ -1,7 +1,18 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
+let
+  niriPkgs = inputs.niri.packages.${pkgs.system};
+in
 {
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    # niri-stable (v25.08) predates KDL `include` support, which DMS relies on
+    # for its config-injection scheme. Track unstable to pick up v25.11+.
+    package = niriPkgs.niri-unstable;
+  };
+
+  # niri ≥25.08 auto-spawns xwayland-satellite when it's on PATH.
+  environment.systemPackages = [ niriPkgs.xwayland-satellite-stable ];
 
   services.displayManager.sddm.enable = false;
   services.greetd = {

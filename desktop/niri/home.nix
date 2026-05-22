@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ config, inputs, ... }:
 
 {
   imports = [
@@ -9,7 +9,11 @@
   ];
 
   programs.niri.settings = {
-    # Flesh out keybinds, outputs, and layout when the bare-metal host is set up.
+    binds = with config.lib.niri.actions; {
+      "Mod+Return".action = spawn "ghostty";
+      "Mod+B".action = spawn "firefox";
+      "Mod+Alt+C".action = close-window;
+    };
   };
 
   programs.dank-material-shell = {
