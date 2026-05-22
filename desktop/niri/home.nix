@@ -22,8 +22,8 @@
     enableClipboardPaste = true;
 
     niri = {
-      enableKeybinds = true;
-      enableSpawn = false;
+      # Keybinds flow via niri.includes (DMS default); don't also enableKeybinds.
+      enableSpawn = false; # mutually exclusive with systemd.enable above
     };
   };
 }
