@@ -2,7 +2,8 @@
 
 {
   imports = [
-    inputs.niri.homeModules.niri
+    # niri.homeModules.niri is auto-imported by niri-flake's NixOS module
+    # when home-manager runs as a NixOS module — don't re-import here.
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
   ];
