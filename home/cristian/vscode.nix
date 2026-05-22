@@ -16,10 +16,15 @@ in
         jnoortheen.nix-ide
         christian-kohler.path-intellisense
 
+        # General
         asvetliakov.vscode-neovim
         jgclark.vscode-todo-highlight
 
-        # Python stuff
+        # C#
+        ms-dotnettools.csdevkit
+        csharpier.csharpier-vscode
+
+        # Python
         ms-python.python
         ms-python.black-formatter
         ms-python.isort
