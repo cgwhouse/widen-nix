@@ -19,6 +19,11 @@ in
 
     configFile.kwinrc.TabBox.HighlightWindows = false;
 
+    configFile.kdeglobals.General = {
+      TerminalService = "com.mitchellh.ghostty.desktop";
+      TerminalApplication = "ghostty";
+    };
+
     powerdevil.AC = {
       autoSuspend.action = "nothing";
       turnOffDisplay.idleTimeout = "never";
@@ -41,6 +46,8 @@ in
           "Alt+F4"
         ];
       };
+
+      "services/com.mitchellh.ghostty.desktop"."_launch" = "Meta+Return";
     };
 
     workspace = {
