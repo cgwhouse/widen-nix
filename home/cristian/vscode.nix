@@ -14,6 +14,7 @@ in
         jnoortheen.nix-ide
         christian-kohler.path-intellisense
         asvetliakov.vscode-neovim
+        jgclark.vscode-todo-highlight
       ];
 
       userSettings = {
