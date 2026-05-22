@@ -1,5 +1,17 @@
-{ config, inputs, ... }:
+{ config, inputs, pkgs, ... }:
 
+let
+  # Catppuccin's DMS theme bundle (multi-flavor + accent matrix).
+  catppuccinTheme = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/catppuccin/dankmaterialshell/main/catppuccin.json";
+    hash = "sha256-3wRf5KBzJ7IUpZGJ10BCIhDfd6b6tUcj8YJ4Q1Cg0a8=";
+  };
+
+  wallpaper = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/zhichaoh/catppuccin-wallpapers/main/os/nix-magenta-blue-1920x1080.png";
+    hash = "sha256-CsBF3h4p0EEawF9aNDzm9DN+YoxyEnicc9n0oC8FCfs=";
+  };
+in
 {
   imports = [
     # niri.homeModules.niri is auto-imported by niri-flake's NixOS module
@@ -134,6 +146,23 @@
     niri = {
       # Keybinds flow via niri.includes (DMS default); don't also enableKeybinds.
       enableSpawn = false; # mutually exclusive with systemd.enable above
+    };
+
+    # Theme category "custom" tells DMS to load customThemeFile; the catppuccin
+    # bundle is a multi-flavor theme keyed by its `id` ("catppuccin"), and the
+    # per-flavor selection lives under registryThemeVariants.<id>.<mode>.
+    settings = {
+      currentThemeName = "custom";
+      currentThemeCategory = "custom";
+      customThemeFile = "${catppuccinTheme}";
+      registryThemeVariants.catppuccin.dark = {
+        flavor = "mocha";
+        accent = "green";
+      };
+    };
+
+    session = {
+      wallpaperPath = "${wallpaper}";
     };
   };
 }
