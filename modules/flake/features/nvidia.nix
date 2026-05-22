@@ -18,7 +18,7 @@
         };
       };
 
-      # Early KMS so Plymouth comes up on the NVIDIA console
+      # Early KMS for Plymouth
       boot.initrd.kernelModules = [
         "nvidia"
         "nvidia_modeset"
