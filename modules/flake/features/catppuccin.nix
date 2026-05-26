@@ -1,12 +1,10 @@
-{ lib, inputs, ... }:
+{ inputs, ... }:
 
 let
   theme = {
     flavor = "mocha";
     accent = "green";
   };
-
-  cap = s: (lib.toUpper (builtins.substring 0 1 s)) + (builtins.substring 1 (-1) s);
 in
 {
   flake.nixosModules.catppuccin = {
@@ -33,15 +31,20 @@ in
       catppuccin = {
         enable = true;
         inherit (theme) flavor accent;
+
+        # Sets home.pointerCursor (name + package) to the catppuccin cursor.
+        # niri reads the theme name from there in desktop/niri/home.nix.
+        cursors.enable = true;
       };
+
+      # home.pointerCursor.size has no default; set one so GTK/niri agree.
+      home.pointerCursor.size = 24;
 
       home.packages = [
         (pkgs.catppuccin-kde.override {
           flavour = [ theme.flavor ];
           accents = [ theme.accent ];
         })
-
-        pkgs.catppuccin-cursors."${theme.flavor}${cap theme.accent}"
       ];
     };
 }

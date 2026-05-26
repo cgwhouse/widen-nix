@@ -16,6 +16,10 @@ in
 
   # Display Manager
   services = {
+    # DMS reads the user avatar from AccountsService (org.freedesktop.Accounts).
+    # SDDM/Plasma pulled this in implicitly; greetd does not, so enable it here.
+    accounts-daemon.enable = true;
+
     displayManager.sddm.enable = false;
 
     greetd = {

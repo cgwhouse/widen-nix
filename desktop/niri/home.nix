@@ -24,6 +24,16 @@ in
   ];
 
   programs.niri.settings = {
+    # Don't pop up the keybind cheat sheet on every launch
+    hotkey-overlay.skip-at-startup = true;
+
+    # niri reads its cursor from here, not from home.pointerCursor; point it at
+    # the catppuccin theme enabled in modules/flake/features/catppuccin.nix
+    cursor = {
+      theme = config.home.pointerCursor.name;
+      size = config.home.pointerCursor.size;
+    };
+
     binds = with config.lib.niri.actions; {
       # My custom binds
       "Mod+Return".action = spawn "ghostty";
@@ -140,6 +150,10 @@ in
     systemd.enable = true;
     niri.enableSpawn = false;
 
+    # Wallpaper lives in DMS's session state (~/.local/state/.../session.json),
+    # NOT in settings.json — nesting it under `settings` makes DMS ignore it.
+    session.wallpaperPath = "${wallpaper}";
+
     # High-level DMS features
     enableSystemMonitoring = true;
     enableVPN = true;
@@ -163,7 +177,6 @@ in
         flavor = "mocha";
         accent = "green";
       };
-      session.wallpaperPath = "${wallpaper}";
     };
   };
 }
