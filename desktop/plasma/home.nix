@@ -89,6 +89,7 @@ in
     workspace = {
       lookAndFeel = "Catppuccin-${cap config.catppuccin.flavor}-${cap config.catppuccin.accent}";
       cursor.theme = "catppuccin-${config.catppuccin.flavor}-${config.catppuccin.accent}-cursors";
+      iconTheme = "Tela-circle-dark";
     };
 
     # Tweaks to default bottom panel

@@ -58,6 +58,15 @@ in
     };
   };
 
+  # Icon theme
+  gtk = {
+    enable = true;
+    iconTheme.name = "Tela-circle-dark";
+  };
+  
+  # Prevents Catppuccin icon theme from colliding
+  catppuccin.gtk.icon.enable = false;
+
   programs.niri.settings = {
     hotkey-overlay.skip-at-startup = true;
 

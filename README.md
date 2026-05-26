@@ -6,7 +6,6 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 
 ## TODO
 
-- Finish remaining VS Code config
 - Get a sense of dev environment / working with a repo
 - virt-manager
 - more browser stuff, browser config

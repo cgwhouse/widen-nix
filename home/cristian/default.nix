@@ -22,6 +22,7 @@ in
     fastfetch
     ripgrep
     spotify
+    tela-circle-icon-theme
   ];
 
   # Do not touch
