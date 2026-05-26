@@ -20,16 +20,17 @@ in
         asvetliakov.vscode-neovim
         jgclark.vscode-todo-highlight
         streetsidesoftware.code-spell-checker
-        cvbge.escape-string
         esbenp.prettier-vscode
-        ms-azuretools.vscode-docker
         anthropic.claude-code
         eamodio.gitlens
+        #cvbge.escape-string
 
         # .NET
         ms-dotnettools.csdevkit
+        ms-dotnettools.csharp
+        ms-dotnettools.vscode-dotnet-runtime
         csharpier.csharpier-vscode
-        ms-azure-devops.azure-pipelines
+        #ms-azure-devops.azure-pipelines
 
         # Python
         ms-python.python
@@ -42,6 +43,10 @@ in
         yzane.markdown-pdf
         redhat.vscode-xml
         redhat.vscode-yaml
+
+        # Containers
+        ms-azuretools.vscode-docker
+        ms-azuretools.vscode-containers
       ];
 
       userSettings = {
