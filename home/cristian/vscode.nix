@@ -35,7 +35,7 @@ in
         ms-python.python
         ms-python.black-formatter
         ms-python.isort
-        
+
         # Markup
         yzhang.markdown-all-in-one
         davidanson.vscode-markdownlint
