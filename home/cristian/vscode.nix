@@ -23,14 +23,14 @@ in
         esbenp.prettier-vscode
         anthropic.claude-code
         eamodio.gitlens
-        #cvbge.escape-string
+        # cvbge.escape-string
 
         # .NET
         ms-dotnettools.csdevkit
         ms-dotnettools.csharp
         ms-dotnettools.vscode-dotnet-runtime
         csharpier.csharpier-vscode
-        #ms-azure-devops.azure-pipelines
+        # ms-azure-devops.azure-pipelines
 
         # Python
         ms-python.python
