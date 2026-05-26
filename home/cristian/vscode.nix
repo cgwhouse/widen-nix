@@ -1,9 +1,17 @@
-{ pkgs, osConfig, ... }:
+{
+  pkgs,
+  osConfig,
+  inputs,
+  ...
+}:
 
 let
   # Path to the widen-nix repo, relative to $HOME
   # NOTE: This does require that this repo be at a well-known path
   widenNixPath = "repos/widen-nix";
+
+  # Extensions not in nixpkgs, pulled from the VS Code Marketplace
+  marketplace = inputs.nix-vscode-extensions.extensions.${pkgs.stdenv.hostPlatform.system}.vscode-marketplace;
 in
 {
   programs.vscode = {
@@ -23,14 +31,12 @@ in
         esbenp.prettier-vscode
         anthropic.claude-code
         eamodio.gitlens
-        # cvbge.escape-string
 
         # .NET
         ms-dotnettools.csdevkit
         ms-dotnettools.csharp
         ms-dotnettools.vscode-dotnet-runtime
         csharpier.csharpier-vscode
-        # ms-azure-devops.azure-pipelines
 
         # Python
         ms-python.python
@@ -47,6 +53,10 @@ in
         # Containers
         ms-azuretools.vscode-docker
         ms-azuretools.vscode-containers
+        
+        # Need to get these two from the flake instead
+        marketplace.cvbge.escape-string
+        marketplace.ms-azure-devops.azure-pipelines
       ];
 
       userSettings = {
