@@ -22,13 +22,46 @@ in
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
   ];
+  
+  programs.dank-material-shell = {
+    enable = true;
+
+    # Use the systemd service instead of enableSpawn
+    systemd.enable = true;
+    niri.enableSpawn = false;
+
+    # High-level DMS features
+    enableSystemMonitoring = true;
+    enableVPN = true;
+    enableDynamicTheming = true;
+    enableClipboardPaste = true;
+    
+    session.wallpaperPath = "${wallpaper}";
+
+    # Other settings via DMS UI
+    settings = {
+      use24HourClock = false;
+      weatherEnabled = true;
+      useFahrenheit = true;
+      useAutoLocation = true;
+
+      fontFamily = "Ubuntu Nerd Font";
+
+      # Theme
+      currentThemeName = "custom";
+      currentThemeCategory = "custom";
+      customThemeFile = "${catppuccinTheme}";
+      registryThemeVariants.catppuccin.dark = {
+        flavor = "mocha";
+        accent = "green";
+      };
+    };
+  };
 
   programs.niri.settings = {
-    # Don't pop up the keybind cheat sheet on every launch
     hotkey-overlay.skip-at-startup = true;
 
-    # niri reads its cursor from here, not from home.pointerCursor; point it at
-    # the catppuccin theme enabled in modules/flake/features/catppuccin.nix
+    # Cursor theme
     cursor = {
       theme = config.home.pointerCursor.name;
       size = config.home.pointerCursor.size;
@@ -143,40 +176,5 @@ in
     };
   };
 
-  programs.dank-material-shell = {
-    enable = true;
-
-    # Use the systemd service instead of enableSpawn
-    systemd.enable = true;
-    niri.enableSpawn = false;
-
-    # Wallpaper lives in DMS's session state (~/.local/state/.../session.json),
-    # NOT in settings.json — nesting it under `settings` makes DMS ignore it.
-    session.wallpaperPath = "${wallpaper}";
-
-    # High-level DMS features
-    enableSystemMonitoring = true;
-    enableVPN = true;
-    enableDynamicTheming = true;
-    enableClipboardPaste = true;
-
-    # Other settings via DMS UI
-    settings = {
-      use24HourClock = false;
-      weatherEnabled = true;
-      useFahrenheit = true;
-      useAutoLocation = true;
-
-      fontFamily = "Ubuntu Nerd Font";
-
-      # Theme + Wallpaper
-      currentThemeName = "custom";
-      currentThemeCategory = "custom";
-      customThemeFile = "${catppuccinTheme}";
-      registryThemeVariants.catppuccin.dark = {
-        flavor = "mocha";
-        accent = "green";
-      };
-    };
-  };
+  
 }
