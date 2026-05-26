@@ -19,15 +19,29 @@ in
         # General
         asvetliakov.vscode-neovim
         jgclark.vscode-todo-highlight
+        streetsidesoftware.code-spell-checker
+        cvbge.escape-string
+        esbenp.prettier-vscode
+        ms-azuretools.vscode-docker
+        anthropic.claude-code
+        eamodio.gitlens
 
-        # C#
+        # .NET
         ms-dotnettools.csdevkit
         csharpier.csharpier-vscode
+        ms-azure-devops.azure-pipelines
 
         # Python
         ms-python.python
         ms-python.black-formatter
         ms-python.isort
+        
+        # Markup
+        yzhang.markdown-all-in-one
+        davidanson.vscode-markdownlint
+        yzane.markdown-pdf
+        redhat.vscode-xml
+        redhat.vscode-yaml
       ];
 
       userSettings = {
