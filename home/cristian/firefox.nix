@@ -10,7 +10,7 @@
 
       extensions = {
         force = true;
-        
+
         # See repo linked in flake.nix to figure out how these are named
         packages = with pkgs.firefox-addons; [
           ublock-origin

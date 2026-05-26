@@ -12,7 +12,7 @@
       ];
     };
 
-# Run fastfetch when a new shell starts
+    # Run fastfetch when a new shell starts
     initContent = ''
       fastfetch
     '';

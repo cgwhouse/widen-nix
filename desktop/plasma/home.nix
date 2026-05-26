@@ -6,7 +6,7 @@
 }:
 
 let
-# Helper to do the capitalization that the Plasma theme needs
+  # Helper to do the capitalization that the Plasma theme needs
   cap = s: (lib.toUpper (builtins.substring 0 1 s)) + (builtins.substring 1 (-1) s);
 in
 {
@@ -15,19 +15,19 @@ in
   programs.plasma = {
     enable = true;
 
-# General settings I usually do
+    # General settings I usually do
     input.keyboard.numlockOnStartup = "on";
     session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
     configFile.kwinrc.TabBox.HighlightWindows = false;
     kscreenlocker.appearance.showMediaControls = false;
 
-# Set default terminal to ghostty
+    # Set default terminal to ghostty
     configFile.kdeglobals.General = {
       TerminalService = "com.mitchellh.ghostty.desktop";
       TerminalApplication = "ghostty";
     };
 
-# Disable auto power management
+    # Disable auto power management
     powerdevil.AC = {
       autoSuspend.action = "nothing";
       turnOffDisplay.idleTimeout = "never";
@@ -41,7 +41,7 @@ in
       timeout = 0;
     };
 
-# My only custom keyboard shortcuts on Plasma
+    # My only custom keyboard shortcuts on Plasma
     shortcuts = {
       kwin = {
         "Window Close" = [
@@ -52,8 +52,8 @@ in
       "services/com.mitchellh.ghostty.desktop"."_launch" = "Meta+Return";
     };
 
-# Font settings
-fonts = {
+    # Font settings
+    fonts = {
       general = {
         family = "Ubuntu Nerd Font";
         pointSize = 13;
@@ -85,13 +85,13 @@ fonts = {
       };
     };
 
-# Theme
+    # Theme
     workspace = {
       lookAndFeel = "Catppuccin-${cap config.catppuccin.flavor}-${cap config.catppuccin.accent}";
       cursor.theme = "catppuccin-${config.catppuccin.flavor}-${config.catppuccin.accent}-cursors";
     };
 
-# Tweaks to default bottom panel
+    # Tweaks to default bottom panel
     panels = [
       {
         floating = true;

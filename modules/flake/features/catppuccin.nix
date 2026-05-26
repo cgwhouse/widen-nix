@@ -12,7 +12,7 @@ in
   flake.nixosModules.catppuccin = {
     imports = [ inputs.catppuccin.nixosModules.catppuccin ];
 
-# Harmless / does nothing if SDDM not enabled, i.e. when using Niri + greetd instead
+    # Harmless / does nothing if SDDM not enabled, i.e. when using Niri + greetd instead
     catppuccin.sddm = {
       enable = true;
       clockEnabled = false;

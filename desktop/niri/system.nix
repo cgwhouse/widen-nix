@@ -14,15 +14,15 @@ in
   # Needed for XWayland
   environment.systemPackages = [ niriPkgs.xwayland-satellite-stable ];
 
-# Display Manager
-services = {
-  displayManager.sddm.enable = false;
+  # Display Manager
+  services = {
+    displayManager.sddm.enable = false;
 
-greetd = {
-    enable = true;
-    settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
+    greetd = {
+      enable = true;
+      settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
+    };
   };
-};
 
   # DMS ships its own polkit agent, we don't need the Niri one
   systemd.user.services.niri-flake-polkit.enable = false;

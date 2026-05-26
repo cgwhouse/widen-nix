@@ -9,7 +9,7 @@ let
       inherit modules;
     };
 
-# All hosts will use these
+  # All hosts will use these
   common = [
     config.flake.nixosModules.catppuccin
     config.flake.nixosModules.home-manager
@@ -21,7 +21,7 @@ in
     widen-nix-vm = mkSystem (
       [
         ../../hosts/vm
-        config.flake.nixosModules.plasma
+        config.flake.nixosModules.niri
       ]
       ++ common
     );

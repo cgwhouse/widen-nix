@@ -8,10 +8,10 @@
       nerd-fonts.ubuntu
       nerd-fonts.fira-code
       noto-fonts-color-emoji
- 
+
       # Just in case I never need a Serif font
       lora
-   ];
+    ];
 
     fontconfig.defaultFonts = {
       serif = [ "Lora" ];
