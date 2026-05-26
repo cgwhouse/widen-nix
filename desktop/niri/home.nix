@@ -153,6 +153,8 @@ in
       useFahrenheit = true;
       useAutoLocation = true;
 
+      "fontFamily" = "Ubuntu Nerd Font";
+
       # Theme + Wallpaper
       currentThemeName = "custom";
       currentThemeCategory = "custom";

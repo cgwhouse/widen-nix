@@ -12,8 +12,9 @@
       isNormalUser = true;
       description = "Cristian Widenhouse";
       extraGroups = [
-        "wheel"
+        "docker"
         "networkmanager"
+        "wheel"
       ];
     };
   };
