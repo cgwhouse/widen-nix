@@ -22,7 +22,13 @@ in
     fastfetch
     ripgrep
     spotify
-    tela-circle-icon-theme
+
+    # Icon theme, selected per-DE in desktop/plasma and desktop/niri.
+    # catppuccin palette + green folder accent -> "Colloid-Green-Catppuccin-Dark"
+    (colloid-icon-theme.override {
+      colorVariants = [ "green" ];
+      schemeVariants = [ "catppuccin" ];
+    })
   ];
 
   # Do not touch

@@ -61,7 +61,7 @@ in
   # Icon theme
   gtk = {
     enable = true;
-    iconTheme.name = "Tela-circle-dark";
+    iconTheme.name = "Colloid-Green-Catppuccin-Dark";
   };
 
   # Prevents Catppuccin icon theme from colliding
