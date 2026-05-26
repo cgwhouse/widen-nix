@@ -63,7 +63,7 @@ in
     enable = true;
     iconTheme.name = "Tela-circle-dark";
   };
-  
+
   # Prevents Catppuccin icon theme from colliding
   catppuccin.gtk.icon.enable = false;
 
