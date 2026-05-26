@@ -18,7 +18,7 @@ in
   services = {
     displayManager.sddm.enable = false;
 
-# Needed for user avatar / profile pic
+    # Needed for user avatar / profile pic
     accounts-daemon.enable = true;
     greetd = {
       enable = true;

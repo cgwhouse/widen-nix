@@ -22,7 +22,7 @@ in
     inputs.dms.homeModules.dank-material-shell
     inputs.dms.homeModules.niri
   ];
-  
+
   programs.dank-material-shell = {
     enable = true;
 
@@ -35,7 +35,7 @@ in
     enableVPN = true;
     enableDynamicTheming = true;
     enableClipboardPaste = true;
-    
+
     session.wallpaperPath = "${wallpaper}";
 
     # Other settings via DMS UI
@@ -176,5 +176,4 @@ in
     };
   };
 
-  
 }
