@@ -177,6 +177,12 @@ in
           "backspace"
           "delete"
         ];
+
+        # Global Dictionary
+        "cSpell.userWords" = [
+          "Cristian"
+          "Widenhouse"
+        ];
       };
     };
   };
@@ -192,5 +198,9 @@ in
         options.home-manager.expr = ''(builtins.getFlake "''${workspaceFolder}").nixosConfigurations.${osConfig.networking.hostName}.options.home-manager.users.type.getSubOptions [ ]'';
       };
     };
+
+    "cSpell.words" = [
+      "pkgs"
+    ];
   };
 }
