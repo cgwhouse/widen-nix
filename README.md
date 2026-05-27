@@ -14,7 +14,7 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 
 - Perform a standard NixOS install
 
-- Add `git` to the system config, rebuild, then clone this repo to the expected location:
+- Add `git` and `vim` to the system config, rebuild, then clone this repo to the expected location:
 
   ```sh
   mkdir -p ~/repos/widen-nix

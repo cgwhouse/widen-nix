@@ -18,12 +18,13 @@ in
   services = {
     displayManager.sddm.enable = false;
 
-    # Needed for user avatar / profile pic
-    accounts-daemon.enable = true;
     greetd = {
       enable = true;
       settings.default_session.command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd niri-session";
     };
+
+    # Needed for user avatar / profile pic
+    accounts-daemon.enable = true;
   };
 
   # DMS ships its own polkit agent, we don't need the Niri one
