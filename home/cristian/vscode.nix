@@ -130,6 +130,10 @@ in
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
 
+        "[markdown]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+
         # Neovim extension
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;
