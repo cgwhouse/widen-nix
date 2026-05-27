@@ -13,6 +13,7 @@
       description = "Cristian Widenhouse";
       extraGroups = [
         "docker"
+        "libvirtd"
         "networkmanager"
         "wheel"
       ];
