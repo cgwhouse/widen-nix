@@ -200,35 +200,6 @@ in
       };
     };
 
-    "cSpell.words" = [
-      "asvetliakov"
-      "catppuccin"
-      "Catppuccin"
-      "csdevkit"
-      "cvbge"
-      "davidanson"
-      "dnsmasq"
-      "dotnettools"
-      "eamodio"
-      "esbenp"
-      "Fira"
-      "isort"
-      "jgclark"
-      "jnoortheen"
-      "kohler"
-      "nixd"
-      "nixfmt"
-      "nixos"
-      "nixpkgs"
-      "pkgs"
-      "stdenv"
-      "Sched"
-      "todohighlight"
-      "vhost"
-      "virt"
-      "virtualisation"
-      "yzane"
-      "yzhang"
-    ];
+    "cSpell.enabled" = false;
   };
 }
