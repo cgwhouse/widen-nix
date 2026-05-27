@@ -200,7 +200,15 @@ in
     };
 
     "cSpell.words" = [
+      "dnsmasq"
+      "nixd"
+      "nixfmt"
+      "nixos"
       "pkgs"
+      "Sched"
+      "vhost"
+      "virt"
+      "virtualisation"
     ];
   };
 }

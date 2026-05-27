@@ -27,6 +27,10 @@
       automatic = true;
       dates = [ "weekly" ];
     };
+
+    # Niceness when compiling stuff
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
   };
 
   # Keep the journal from eating disk
