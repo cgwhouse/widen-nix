@@ -65,6 +65,7 @@ in
         "explorer.confirmDragAndDrop" = false;
         "explorer.confirmDelete" = false;
         "telemetry.telemetryLevel" = "off";
+        "terminal.integrated.initialHint" = false;
 
         # Disable Copilot
         "github.copilot.enable" = {
@@ -200,15 +201,34 @@ in
     };
 
     "cSpell.words" = [
+      "asvetliakov"
+      "catppuccin"
+      "Catppuccin"
+      "csdevkit"
+      "cvbge"
+      "davidanson"
       "dnsmasq"
+      "dotnettools"
+      "eamodio"
+      "esbenp"
+      "Fira"
+      "isort"
+      "jgclark"
+      "jnoortheen"
+      "kohler"
       "nixd"
       "nixfmt"
       "nixos"
+      "nixpkgs"
       "pkgs"
+      "stdenv"
       "Sched"
+      "todohighlight"
       "vhost"
       "virt"
       "virtualisation"
+      "yzane"
+      "yzhang"
     ];
   };
 }
