@@ -7,8 +7,7 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 ## TODO
 
 - Get a sense of dev environment / working with a repo
-- virt-manager
-- more browser stuff, browser config
+- Chromium
 - hardware acceleration
 
 ## New Host Setup
