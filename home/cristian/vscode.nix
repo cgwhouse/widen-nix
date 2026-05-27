@@ -120,6 +120,11 @@ in
           "black"
         ];
 
+        # Other formatter defaults
+        "[json]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+
         # Neovim extension
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;
