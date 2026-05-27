@@ -1,12 +1,13 @@
 {
-  flake.nixosModules.gaming = {
+  flake.nixosModules.gaming =
     { pkgs, ... }:
 
-    programs.steam.enable = true;
-    programs.gamemode.enable = true;
-    
-home.packages = with pkgs; [
-       protonplus 
+    {
+      programs.steam.enable = true;
+      programs.gamemode.enable = true;
+
+      environment.systemPackages = with pkgs; [
+        protonplus
       ];
-  };
+    };
 }
