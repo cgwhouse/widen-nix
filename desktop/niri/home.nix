@@ -82,6 +82,7 @@ in
       "Mod+B".action = spawn "firefox";
       "Mod+Alt+C".action = close-window;
       "Alt+Space".action = spawn "dms" "ipc" "spotlight" "toggle";
+      "Mod+L".action = spawn "dms" "ipc" "lock" "lock";
 
       ### Everything below is lifted from the defaults ###
 
