@@ -78,13 +78,15 @@ in
       size = config.home.pointerCursor.size;
     };
 
-    binds = defaultBinds // (with config.lib.niri.actions; {
-      "Mod+Return".action = spawn "ghostty";
-      "Mod+B".action = spawn "firefox";
-      "Mod+Alt+C".action = close-window;
-      "Mod+Space".action = spawn "dms" "ipc" "spotlight" "toggle";
-      "Mod+Alt+L".action = spawn "dms" "ipc" "lock" "lock";
-    });
+    binds =
+      defaultBinds
+      // (with config.lib.niri.actions; {
+        "Mod+Return".action = spawn "ghostty";
+        "Mod+B".action = spawn "firefox";
+        "Mod+Alt+C".action = close-window;
+        "Mod+Space".action = spawn "dms" "ipc" "spotlight" "toggle";
+        "Mod+Alt+L".action = spawn "dms" "ipc" "lock" "lock";
+      });
   };
 
 }
