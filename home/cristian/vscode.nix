@@ -135,6 +135,23 @@ in
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
         };
 
+        # TODO Highlight
+        "todohighlight.include" = [
+          "**/*.js"
+          "**/*.jsx"
+          "**/*.ts"
+          "**/*.tsx"
+          "**/*.html"
+          "**/*.css"
+          "**/*.scss"
+          "**/*.php"
+          "**/*.rb"
+          "**/*.txt"
+          "**/*.mdown"
+          "**/*.md"
+          "**/*.nix"
+        ];
+
         # Neovim extension
         "extensions.experimental.affinity" = {
           "asvetliakov.vscode-neovim" = 1;
