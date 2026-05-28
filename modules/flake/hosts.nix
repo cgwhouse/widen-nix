@@ -1,11 +1,13 @@
 { config, inputs, ... }:
 
 let
+  theme = config.flake.lib.theme;
+
   mkSystem =
     modules:
     inputs.nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs theme; };
       inherit modules;
     };
 

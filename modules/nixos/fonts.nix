@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, theme, ... }:
 
 {
   fonts = {
@@ -15,8 +15,8 @@
 
     fontconfig.defaultFonts = {
       serif = [ "Lora" ];
-      sansSerif = [ "Ubuntu Nerd Font" ];
-      monospace = [ "FiraCode Nerd Font" ];
+      sansSerif = [ theme.fonts.sans ];
+      monospace = [ theme.fonts.mono ];
       emoji = [ "Noto Color Emoji" ];
     };
   };

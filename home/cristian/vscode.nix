@@ -2,6 +2,7 @@
   pkgs,
   osConfig,
   inputs,
+  theme,
   ...
 }:
 
@@ -85,7 +86,7 @@ in
         # Fonts
         "editor.fontSize" = 15;
         "editor.fontLigatures" = true;
-        "editor.fontFamily" = "FiraCode Nerd Font";
+        "editor.fontFamily" = theme.fonts.mono;
 
         # Theming bits (applied by catppuccin.nix global enable)
         "window.titleBarStyle" = "custom";

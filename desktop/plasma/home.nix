@@ -2,6 +2,7 @@
   config,
   lib,
   inputs,
+  theme,
   ...
 }:
 
@@ -55,32 +56,32 @@ in
     # Font settings
     fonts = {
       general = {
-        family = "Ubuntu Nerd Font";
+        family = theme.fonts.sans;
         pointSize = 13;
       };
 
       fixedWidth = {
-        family = "FiraCode Nerd Font";
+        family = theme.fonts.mono;
         pointSize = 13;
       };
 
       small = {
-        family = "Ubuntu Nerd Font";
+        family = theme.fonts.sans;
         pointSize = 11;
       };
 
       toolbar = {
-        family = "Ubuntu Nerd Font";
+        family = theme.fonts.sans;
         pointSize = 13;
       };
 
       menu = {
-        family = "Ubuntu Nerd Font";
+        family = theme.fonts.sans;
         pointSize = 13;
       };
 
       windowTitle = {
-        family = "Ubuntu Nerd Font";
+        family = theme.fonts.sans;
         pointSize = 13;
       };
     };
@@ -89,7 +90,7 @@ in
     workspace = {
       lookAndFeel = "Catppuccin-${cap config.catppuccin.flavor}-${cap config.catppuccin.accent}";
       cursor.theme = "catppuccin-${config.catppuccin.flavor}-${config.catppuccin.accent}-cursors";
-      iconTheme = "Colloid-Green-Catppuccin-Dark";
+      iconTheme = theme.iconTheme;
     };
 
     # Tweaks to default bottom panel

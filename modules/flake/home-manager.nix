@@ -1,5 +1,8 @@
 { config, inputs, ... }:
 
+let
+  theme = config.flake.lib.theme;
+in
 {
   imports = [ inputs.home-manager.flakeModules.home-manager ];
 
@@ -9,7 +12,7 @@
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
-      extraSpecialArgs = { inherit inputs; };
+      extraSpecialArgs = { inherit inputs theme; };
 
       users.cristian = {
         imports = [
