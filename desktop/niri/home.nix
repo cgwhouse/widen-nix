@@ -47,6 +47,7 @@ in
       weatherEnabled = true;
       useFahrenheit = true;
       useAutoLocation = true;
+      launcherLogoMode = "os";
 
       fontFamily = theme.fonts.sans;
 
