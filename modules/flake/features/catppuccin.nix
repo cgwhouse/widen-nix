@@ -12,6 +12,7 @@ in
 
     catppuccin = {
       enable = true;
+      autoEnable = true;
       cache.enable = true;
       inherit (theme) flavor accent;
     };
