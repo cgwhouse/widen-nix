@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  # Make zsh available as a system shell
-  programs.zsh.enable = true;
-  environment.shells = with pkgs; [ zsh ];
-
   users = {
     defaultUserShell = pkgs.zsh;
 
