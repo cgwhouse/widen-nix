@@ -29,7 +29,7 @@ in
 
       catppuccin = {
         enable = true;
-      autoEnable = true;
+        autoEnable = true;
         inherit (theme) flavor accent;
 
         # Sets home.pointerCursor (name + package) to the catppuccin cursor,
