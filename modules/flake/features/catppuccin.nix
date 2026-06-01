@@ -10,17 +10,14 @@ in
   flake.nixosModules.catppuccin = {
     imports = [ inputs.catppuccin.nixosModules.catppuccin ];
 
-    # Harmless / does nothing if SDDM not enabled
-    catppuccin.sddm = {
+    catppuccin = {
       enable = true;
-      clockEnabled = false;
+      cache.enable = true;
       inherit (theme) flavor accent;
     };
 
-    catppuccin.plymouth = {
-      enable = true;
-      inherit (theme) flavor;
-    };
+    # Disabled because the clock is 24hr format and I don't like it
+    catppuccin.sddm.clockEnabled = false;
   };
 
   flake.homeModules.catppuccin =
