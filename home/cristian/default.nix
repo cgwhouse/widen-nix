@@ -31,6 +31,9 @@ in
     })
   ];
 
+  # Sometimes the versions don't match after a release, silence warning
+  home.enableNixpkgsReleaseCheck = false;
+
   # Do not touch
   home.stateVersion = "26.05";
 }
