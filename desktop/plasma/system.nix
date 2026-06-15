@@ -1,6 +1,5 @@
 {
   services = {
-    # KDE
     displayManager.sddm.enable = true;
     desktopManager.plasma6.enable = true;
 

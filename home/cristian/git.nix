@@ -1,4 +1,8 @@
+{ pkgs, ... }:
+
 {
+  home.packages = [ pkgs.git-credential-manager ];
+
   programs.git = {
     enable = true;
 

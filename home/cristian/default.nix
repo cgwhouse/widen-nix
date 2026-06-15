@@ -20,9 +20,19 @@ in
     nixfmt-tree
 
     fastfetch
-    git-credential-manager
     ripgrep
+    spotify
+
+    # Icon theme, selected per-DE in desktop/plasma and desktop/niri.
+    # catppuccin palette + green folder accent -> "Colloid-Green-Catppuccin-Dark"
+    (colloid-icon-theme.override {
+      colorVariants = [ "green" ];
+      schemeVariants = [ "catppuccin" ];
+    })
   ];
+
+  # Sometimes the versions don't match after a release, silence warning
+  home.enableNixpkgsReleaseCheck = false;
 
   # Do not touch
   home.stateVersion = "26.05";
