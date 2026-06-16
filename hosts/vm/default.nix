@@ -1,8 +1,7 @@
 {
-
   imports = [
     ./hardware-configuration.nix
-    ../../modules/configuration.nix
+    ../../modules/default.nix
     ../../modules/vm-guest.nix
   ];
 
