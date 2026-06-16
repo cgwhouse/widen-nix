@@ -5,7 +5,7 @@
   outputs = { self, nixpkgs }@inputs: {
     nixosConfigurations.widen-nix-vm = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
-      modules = [ ./configuration.nix ];
+      modules = [ ./modules/configuration.nix ];
     };
   };
 }
