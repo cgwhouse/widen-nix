@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  #    ./hardware-configuration.nix
       ./system-packages.nix
     ];
 
@@ -25,7 +25,7 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
 
-  networking.hostName = "widen-nix-vm"; # Define your hostname.
+  #networking.hostName = "widen-nix-vm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
