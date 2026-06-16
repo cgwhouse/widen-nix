@@ -1,12 +1,11 @@
 {
 
-imports =
-    [ 
-      ./hardware-configuration.nix
-      ../../modules/configuration.nix
-      ../../modules/vm-guest.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/configuration.nix
+    ../../modules/vm-guest.nix
+  ];
 
   networking.hostName = "widen-nix-vm";
-system.stateVersion = "26.05";
+  system.stateVersion = "26.05";
 }

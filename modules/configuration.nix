@@ -5,14 +5,17 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-  #    ./hardware-configuration.nix
-      ./system-packages.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    #    ./hardware-configuration.nix
+    ./system-packages.nix
+  ];
 
-# Enable flakes
-nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Enable flakes
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -89,10 +92,13 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
   users.users."cristian" = {
     isNormalUser = true;
     description = "Cristian Widenhouse";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -101,7 +107,7 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -120,7 +126,5 @@ nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  
 
 }
