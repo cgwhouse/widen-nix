@@ -3,6 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     curl
+    dnsmasq
     lora
     nerd-fonts.ubuntu
     nerd-fonts.fira-code
