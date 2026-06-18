@@ -8,6 +8,7 @@
     ./nix-index.nix
     ./packages.nix
     ./profile.nix
+    ./ssh.nix
     ./starship.nix
     ./zsh.nix
   ];
