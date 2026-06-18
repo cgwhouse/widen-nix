@@ -6,10 +6,5 @@
     pciutils
     vim
     wget
-
-    # git
-    # fastfetch
-    # nixfmt
-    # nixfmt-tree
   ];
 }
