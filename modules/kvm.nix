@@ -11,4 +11,8 @@
   programs.virt-manager.enable = true;
 
   users.users.cristian.extraGroups = [ "libvirtd" ];
+
+  environment.systemPackages = with pkgs; [
+    dnsmasq
+  ];
 }
