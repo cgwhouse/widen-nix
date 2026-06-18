@@ -2,7 +2,7 @@
   imports = [
     ./hardware.nix
     ../../modules/default.nix
-    ../../modules/vm-guest.nix
+    ../../modules/optional/vm-guest.nix
   ];
 
   networking.hostName = "widen-nix-vm";
