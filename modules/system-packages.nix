@@ -1,11 +1,15 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
+    curl
+    pciutils
     vim
-    git
-    fastfetch
-    nixfmt
-    nixfmt-tree
+    wget
+
+    # git
+    # fastfetch
+    # nixfmt
+    # nixfmt-tree
   ];
 }
