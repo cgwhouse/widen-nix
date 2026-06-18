@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./locale.nix
     ./packages.nix
     ./shell.nix
     ./users.nix
@@ -22,24 +23,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  time.timeZone = "America/New_York";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -76,20 +59,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users."cristian" = {
-  #   isNormalUser = true;
-  #   description = "Cristian Widenhouse";
-  #   extraGroups = [
-  #     "networkmanager"
-  #     "wheel"
-  #   ];
-  #   packages = with pkgs; [
-  #     kdePackages.kate
-  #     #  thunderbird
-  #   ];
-  # };
 
   # Install firefox.
   programs.firefox.enable = true;
