@@ -2,7 +2,6 @@
   imports = [
     ./hardware.nix
     ../../modules/default.nix
-    ../../modules/kvm.nix
     ../../modules/vm-guest.nix
   ];
 
