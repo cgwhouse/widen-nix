@@ -4,6 +4,7 @@
     ./firefox.nix
     ./ghostty.nix
     ./git.nix
+    ./neovim.nix
     ./nix-index.nix
     ./packages.nix
     ./starship.nix
