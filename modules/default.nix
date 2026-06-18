@@ -10,6 +10,7 @@
     ./openssh.nix
     ./packages.nix
     ./plasma.nix
+    ./profile.nix
     ./shell.nix
     ./users.nix
   ];
