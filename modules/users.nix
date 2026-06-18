@@ -8,7 +8,6 @@
       isNormalUser = true;
       description = "Cristian Widenhouse";
       extraGroups = [
-        "docker"
         "networkmanager"
         "wheel"
       ];

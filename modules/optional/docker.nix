@@ -11,4 +11,6 @@
       };
     };
   };
+
+  users.users.cristian.extraGroups = [ "docker" ];
 }
