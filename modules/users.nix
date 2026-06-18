@@ -8,8 +8,7 @@
       isNormalUser = true;
       description = "Cristian Widenhouse";
       extraGroups = [
-        #"docker"
-        #"libvirtd"
+        "docker"
         "networkmanager"
         "wheel"
       ];
