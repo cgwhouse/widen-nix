@@ -1,6 +1,7 @@
 {
   imports = [
     ./direnv.nix
+    ./firefox.nix
     ./git.nix
     ./nix-index.nix
     ./packages.nix
