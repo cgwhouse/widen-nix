@@ -10,6 +10,7 @@
     ./profile.nix
     ./ssh.nix
     ./starship.nix
+    ./vscode.nix
     ./zsh.nix
   ];
 
