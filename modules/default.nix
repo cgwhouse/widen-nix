@@ -3,6 +3,7 @@
 {
   imports = [
     ./audio.nix
+    ./boot.nix
     ./fonts.nix
     ./locale.nix
     ./nix-settings.nix
@@ -10,13 +11,6 @@
     ./shell.nix
     ./users.nix
   ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Enable networking
   networking.networkmanager.enable = true;
