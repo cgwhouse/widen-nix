@@ -2,7 +2,7 @@
 
 let
   user = "cristian";
-  picture = ../../assets/profile.png;
+  picture = ../assets/profile.png;
   userFile = pkgs.writeText "accountsservice-${user}" ''
     [User]
     Icon=/var/lib/AccountsService/icons/${user}
