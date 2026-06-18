@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nix-flatpak.url = "github:gmodena/nix-flatpak/latest";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
@@ -19,7 +20,12 @@
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, ... }:
+    inputs@{
+      nixpkgs,
+      home-manager,
+      nix-flatpak,
+      ...
+    }:
 
     {
       nixosConfigurations = {
@@ -30,6 +36,7 @@
 
           modules = [
             ./hosts/vm/default.nix
+            nix-flatpak.nixosModules.nix-flatpak
 
             home-manager.nixosModules.home-manager
             {
