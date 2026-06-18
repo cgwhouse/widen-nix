@@ -2,6 +2,10 @@
 
 {
   home.packages = with pkgs; [
+    (colloid-icon-theme.override {
+      colorVariants = [ "green" ];
+      schemeVariants = [ "catppuccin" ];
+    })
     fastfetch
     git-credential-manager
     nh
@@ -10,10 +14,5 @@
     nixfmt-tree
     ripgrep
     spotify
-
-    (colloid-icon-theme.override {
-      colorVariants = [ "green" ];
-      schemeVariants = [ "catppuccin" ];
-    })
   ];
 }
