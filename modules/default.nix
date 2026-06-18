@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -63,6 +63,8 @@
 
   # Install firefox.
   #programs.firefox.enable = true;
+
+  nixpkgs.overlays = [ inputs.firefox-addons.overlays.default ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
