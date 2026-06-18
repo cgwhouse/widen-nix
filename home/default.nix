@@ -7,6 +7,7 @@
     ./neovim.nix
     ./nix-index.nix
     ./packages.nix
+    ./profile.nix
     ./starship.nix
     ./zsh.nix
   ];
