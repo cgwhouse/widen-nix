@@ -2,6 +2,7 @@
   imports = [
     ./direnv.nix
     ./firefox.nix
+    ./ghostty.nix
     ./git.nix
     ./nix-index.nix
     ./packages.nix
