@@ -2,6 +2,7 @@
   imports = [
     ./git.nix
     ./packages.nix
+    ./starship.nix
     ./zsh.nix
   ];
 

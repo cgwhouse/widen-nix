@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-home.packages = with pkgs; [
+  home.packages = with pkgs; [
     fastfetch
     git-credential-manager
     nh
