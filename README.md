@@ -33,9 +33,9 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 
 - Copy `default.nix` from a pre-existing host and make any necessary edits (e.g. `networking.hostName`)
 
-- Add a new block to `modules/flake/hosts.nix`
+- Add a new block to `nixosConfigurations` in `flake.nix`
 
-- Stage and commit the changes so far, then temporarily remove `modules/nixos/agenix-secrets.nix`
+- Stage and commit the changes so far, then temporarily remove `./agenix.nix` from `modules/default.nix` (a brand new host's keys aren't in the encrypted secret yet, so agenix can't decrypt it at activation)
 
 - Rebuild using the flake, then reboot for good measure:
 
@@ -44,7 +44,7 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
   sudo reboot
   ```
 
-- Restore `agenix-secrets.nix`
+- Restore `./agenix.nix`
 
 - Update `secrets.nix` with the new host's SSH public keys:
 

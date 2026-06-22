@@ -1,5 +1,6 @@
 {
   imports = [
+    ./agenix.nix
     ./audio.nix
     ./boot.nix
     ./flatpak.nix
