@@ -6,7 +6,6 @@ Due to reasons, this config expects to be placed at $HOME/repos/widen-nix (see `
 
 ## TODO
 
-- Get a sense of dev environment / working with a repo
 - Chromium
 - hardware acceleration
 
