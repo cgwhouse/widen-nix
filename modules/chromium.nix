@@ -4,22 +4,21 @@
   programs.chromium = {
     enable = true;
 
-    
     extensions = [
-# uBlock Origin Lite
-      "ddkjiahejlhfcafbddmgiahcphecmpfh" 
-# Privacy Badger
-      "pkehgijcmpdhfbdbbnkijodmdjhbjlgp" 
-# Bitwarden
-      "nngceckbapebfimnlniiiahkandclblb" 
-# floccus
-      "fnaicdffflnofjppbagibeoednhnbjhg" 
-# SponsorBlock
-      "mnjggcdmjocbbbhaepdhchncahnbgone" 
-# DeArrow
-      "enamippconapkdmgfgjchkhakpfinmaj" 
-# BetterTTV
-      "ajopnjidmegmdimjlfnijceegpefgped" 
+      # uBlock Origin Lite
+      "ddkjiahejlhfcafbddmgiahcphecmpfh"
+      # Privacy Badger
+      "pkehgijcmpdhfbdbbnkijodmdjhbjlgp"
+      # Bitwarden
+      "nngceckbapebfimnlniiiahkandclblb"
+      # floccus
+      "fnaicdffflnofjppbagibeoednhnbjhg"
+      # SponsorBlock
+      "mnjggcdmjocbbbhaepdhchncahnbgone"
+      # DeArrow
+      "enamippconapkdmgfgjchkhakpfinmaj"
+      # BetterTTV
+      "ajopnjidmegmdimjlfnijceegpefgped"
     ];
 
     defaultSearchProviderEnabled = true;
@@ -43,7 +42,7 @@
       "SyncDisabled" = true;
       "SafeBrowsingProtectionLevel" = 0;
 
-# Simple homepage
+      # Simple homepage
       "NewTabPageLocation" = "about:blank";
       "DefaultBrowserSettingEnabled" = false;
       "PromotionalTabsEnabled" = false;

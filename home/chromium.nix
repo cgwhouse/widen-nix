@@ -7,9 +7,9 @@
 
     commandLineArgs = [
       "--ozone-platform-hint=auto"
-      "--password-store=basic" 
+      "--password-store=basic"
     ];
   };
 
-# See modules/chromium.nix for everything else
+  # See modules/chromium.nix for everything else
 }
