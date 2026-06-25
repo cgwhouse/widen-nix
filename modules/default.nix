@@ -3,6 +3,7 @@
     ./agenix.nix
     ./audio.nix
     ./boot.nix
+    ./chromium.nix
     ./flatpak.nix
     ./fonts.nix
     ./locale.nix

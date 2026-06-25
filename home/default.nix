@@ -1,5 +1,6 @@
 {
   imports = [
+    ./chromium.nix
     ./direnv.nix
     ./firefox.nix
     ./ghostty.nix
@@ -18,6 +19,4 @@
 
   home.username = "cristian";
   home.homeDirectory = "/home/cristian";
-
-  home.stateVersion = "26.05";
 }
