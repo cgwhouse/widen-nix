@@ -1,3 +1,5 @@
+{ inputs, ... }:
+
 {
   imports = [ inputs.catppuccin.nixosModules.catppuccin ];
 
@@ -8,5 +10,4 @@
     flavor = "mocha";
     accent = "green";
   };
-
 }

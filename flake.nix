@@ -44,7 +44,6 @@
           modules = [
             ./hosts/vm/default.nix
             nix-flatpak.nixosModules.nix-flatpak
-            catppuccin.nixosModules.catppuccin
 
             home-manager.nixosModules.home-manager
             {
