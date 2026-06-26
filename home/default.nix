@@ -1,5 +1,6 @@
 {
   imports = [
+    ./catppuccin.nix
     ./chromium.nix
     ./direnv.nix
     ./firefox.nix
