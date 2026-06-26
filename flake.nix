@@ -30,8 +30,6 @@
     inputs@{
       nixpkgs,
       home-manager,
-      nix-flatpak,
-      catppuccin,
       ...
     }:
 
@@ -43,8 +41,6 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/vm/default.nix
-            nix-flatpak.nixosModules.nix-flatpak
-
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
