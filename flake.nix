@@ -52,8 +52,9 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.cristian = ./home/default.nix;
-              }
-            };
+            }
+          ];
+        };
 
       };
     };
