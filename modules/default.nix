@@ -3,6 +3,7 @@
     ./agenix.nix
     ./audio.nix
     ./boot.nix
+    ./catppuccin.nix
     ./chromium.nix
     ./flatpak.nix
     ./fonts.nix
