@@ -10,5 +10,6 @@
     pciutils
     vim
     wget
+    xwayland-satellite
   ];
 }
