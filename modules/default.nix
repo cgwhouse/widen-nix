@@ -13,7 +13,7 @@
     ./nix-settings.nix
     ./openssh.nix
     ./packages.nix
-    ./plasma.nix
+    #./plasma.nix
     ./plymouth.nix
     ./profile.nix
     ./shell.nix
