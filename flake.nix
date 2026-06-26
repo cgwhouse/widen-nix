@@ -51,15 +51,9 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.cristian = {
-                imports = [
-                  ./home/default.nix
-                  catppuccin.homeModules.catppuccin
-                ];
-              };
-            }
-          ];
-        };
+              home-manager.users.cristian = ./home/default.nix;
+              }
+            };
 
       };
     };
