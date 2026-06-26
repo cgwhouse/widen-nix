@@ -1,6 +1,6 @@
 # widen-nix
 
-Rewritten because I've decided that my top priority is readability, and I'm willing to take on some extra boilerplate in pursuit of that goal.
+Rewritten because I've decided that my top priority is readability, and I'm willing to do things a little clunkier in pursuit of that goal.
 
 _This config expects to be placed at $HOME/repos/widen-nix (see `vscode.nix` for more details). Open to suggestions on how to improve that._
 
@@ -17,5 +17,4 @@ cat ~/.ssh/id_ed25519.pub
 
 ## TODO
 
-- Chromium
 - hardware acceleration

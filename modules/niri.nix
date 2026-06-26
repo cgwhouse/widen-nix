@@ -1,6 +1,8 @@
 {
-  programs.niri.enable = true;
-  programs.dms-shell.enable = true;
+programs = {
+niri.enable = true;
+dms-shell.enable = true;
+};
 
   services.displayManager.dms-greeter = {
     enable = true;

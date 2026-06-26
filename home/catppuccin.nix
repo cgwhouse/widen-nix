@@ -9,18 +9,12 @@
     flavor = "mocha";
     accent = "green";
 
-    # Sets home.pointerCursor (name + package) to the catppuccin cursor,
-    # niri reads the theme name from there
+    # Disabled by default for some reason
     cursors.enable = true;
   };
 
   # pointerCursor.size has no default
   home.pointerCursor.size = 24;
 
-  home.packages = with pkgs; [
-    (catppuccin-kde.override {
-      flavour = [ "mocha" ];
-      accents = [ "green" ];
-    })
-  ];
+
 }

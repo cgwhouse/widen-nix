@@ -8,14 +8,14 @@
   nixpkgs.overlays = [ inputs.firefox-addons.overlays.default ];
 
   nix = {
-    settings = {
 
       # Enable Flakes
-      experimental-features = [
+    settings.experimental-features =
+
+        [
         "nix-command"
         "flakes"
       ];
-    };
 
     # Automatic garbage collect + store optimize
     gc = {
