@@ -15,5 +15,4 @@
 
   # pointerCursor.size has no default
   home.pointerCursor.size = 24;
-
 }

@@ -10,6 +10,4 @@
       "--password-store=basic"
     ];
   };
-
-  # See modules/chromium.nix for everything else
 }
