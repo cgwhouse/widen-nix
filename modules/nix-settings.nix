@@ -9,10 +9,10 @@
 
   nix = {
 
-      # Enable Flakes
+    # Enable Flakes
     settings.experimental-features =
 
-        [
+      [
         "nix-command"
         "flakes"
       ];
