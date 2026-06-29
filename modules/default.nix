@@ -1,0 +1,21 @@
+{
+  imports = [
+    ./agenix.nix
+    ./audio.nix
+    ./boot.nix
+    ./catppuccin.nix
+    ./chromium.nix
+    ./flatpak.nix
+    ./fonts.nix
+    ./locale.nix
+    ./networking.nix
+    ./niri.nix
+    ./nix-settings.nix
+    ./openssh.nix
+    ./packages.nix
+    ./plymouth.nix
+    ./profile.nix
+    ./shell.nix
+    ./users.nix
+  ];
+}
