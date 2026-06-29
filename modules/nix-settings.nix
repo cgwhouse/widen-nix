@@ -4,7 +4,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Needed so allowUnfree applies to FF extensions too
+  # Provides pkgs.firefox-addons used in firefox.nix
   nixpkgs.overlays = [ inputs.firefox-addons.overlays.default ];
 
   nix = {

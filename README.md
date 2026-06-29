@@ -1,6 +1,6 @@
 # widen-nix
 
-Rewritten because I've decided that my top priority is readability, and I'm willing to do things a little clunkier in pursuit of that goal.
+The top priority is that this config be readable and easy to follow; some things are done a little clunkier in pursuit of that goal.
 
 _This config expects to be placed at $HOME/repos/widen-nix (see `vscode.nix` for more details). Open to suggestions on how to improve that._
 
@@ -14,7 +14,3 @@ cat /etc/ssh/ssh_host_ed25519_key.pub
 ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -N ""
 cat ~/.ssh/id_ed25519.pub
 ```
-
-## TODO
-
-- hardware acceleration
