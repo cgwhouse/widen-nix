@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 
 {
   imports = [ inputs.catppuccin.homeModules.catppuccin ];
@@ -14,5 +14,8 @@
   };
 
   # pointerCursor.size has no default
-  home.pointerCursor.size = 24;
+  home.pointerCursor = {
+    enable = true;
+    size = 24;
+  };
 }
