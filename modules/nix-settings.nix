@@ -10,12 +10,10 @@
   nix = {
 
     # Enable Flakes
-    settings.experimental-features =
-
-      [
-        "nix-command"
-        "flakes"
-      ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
 
     # Automatic garbage collect + store optimize
     gc = {
