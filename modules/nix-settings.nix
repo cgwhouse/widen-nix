@@ -31,12 +31,4 @@
     daemonCPUSchedPolicy = "idle";
     daemonIOSchedClass = "idle";
   };
-
-  # Keep the journal from eating disk
-  # FIXME:
-  # services.journald.extraConfig = ''
-  #   SystemMaxUse=500M
-  #   SystemKeepFree=1G
-  #   MaxRetentionSec=1month
-  # '';
 }
