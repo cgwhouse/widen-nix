@@ -33,9 +33,10 @@
   };
 
   # Keep the journal from eating disk
-  services.journald.extraConfig = ''
-    SystemMaxUse=500M
-    SystemKeepFree=1G
-    MaxRetentionSec=1month
-  '';
+  # FIXME:
+  # services.journald.extraConfig = ''
+  #   SystemMaxUse=500M
+  #   SystemKeepFree=1G
+  #   MaxRetentionSec=1month
+  # '';
 }
