@@ -1,10 +1,10 @@
 {
   programs = {
     niri.enable = true;
-    dms-shell.enable = true;
+    dux-shell.enable = true;
   };
 
-  services.displayManager.dms-greeter = {
+  services.displayManager.dux-greeter = {
     enable = true;
     compositor.name = "niri";
   };
